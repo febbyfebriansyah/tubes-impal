@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'mahasiswa',
         'passwords' => 'mahasiswa',
     ],
 
@@ -36,9 +36,20 @@ return [
     */
 
     'guards' => [
-        'web' => [
+
+        'mahasiswa' => [
             'driver' => 'session',
             'provider' => 'mahasiswa',
+        ],
+
+        'dosen' => [
+            'driver'   => 'session',
+            'provider' => 'dosen'
+        ],
+
+        'admin_akademik' => [
+            'driver'   => 'session',
+            'provider' => 'admin_akademik'
         ],
 
         'api' => [
@@ -46,15 +57,6 @@ return [
             'provider' => 'mahasiswa',
         ],
 
-        'adminakademik' => [
-            'driver'   => 'session',
-            'provider' => 'adminakademik'
-        ],
-
-        'dosen' => [
-            'driver'   => 'session',
-            'provider' => 'dosen'
-        ],
     ],
 
     /*
@@ -75,12 +77,13 @@ return [
     */
 
     'providers' => [
+
         'mahasiswa' => [
             'driver' => 'eloquent',
             'model' => App\Mahasiswa::class,
         ],
 
-        'adminakademik' => [
+        'admin_akademik' => [
             'driver' => 'eloquent',
             'model' => App\AdminAkademik::class,
         ],
@@ -116,23 +119,24 @@ return [
     */
 
     'passwords' => [
+
         'mahasiswa' => [
             'provider' => 'mahasiswa',
-            'email' => 'auth.emails.password',
+//            'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
 
-        'adminakademik' => [
-            'provider' => 'adminakademik',
-            'email' => 'auth.emails.password',
+        'admin_akademik' => [
+            'provider' => 'admin_akademik',
+//            'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
 
         'dosen' => [
-            'provider' => 'adminakademik',
-            'email' => 'auth.emails.password',
+            'provider' => 'dosen',
+//            'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],

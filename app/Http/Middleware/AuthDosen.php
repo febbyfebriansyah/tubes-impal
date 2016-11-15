@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Auth;
 
 
-class DosenAuth
+class AuthDosen
 {
     /**
      * Handle an incoming request.

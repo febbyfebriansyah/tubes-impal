@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Auth;
 
 
-class AdminMiddleware
+class AuthAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::guard('adminakademik')->check()) {
+        if (!Auth::guard('admin_akademik')->check()) {
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {

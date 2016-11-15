@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(SIASeeder::class);
+        $this->call(AccountSeeder::class);
         $this->command->info('SIA seeds finished.');
     }
 }

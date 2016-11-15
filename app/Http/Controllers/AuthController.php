@@ -13,22 +13,25 @@ class AuthController extends Controller
 {
 
     public function getLogin(){
-        if(Auth::guard('adminakademik')->check() || Auth::guard('web')->check())
+        if(Auth::guard('admin_akademik')->check() || Auth::guard('mahasiswa')->check() || Auth::guard('dosen')->check())
             return redirect('/');
         else
             return view('login');
     }
 
     public function postLogin(Request $request){
+
+        $attempt_login = ['username' => $request['username'], 'password' => $request['password']];
+
         if ($request['role'] == 'mahasiswa') {
             // Authentication passed...
-            $login = Auth::guard('web')->attempt(['username' => $request['username'], 'password' => $request['password']]);
+            $login = Auth::guard('mahasiswa')->attempt($attempt_login);
 
         } elseif ($request['role'] == 'dosen') {
-            $login = Auth::guard('dosen')->attempt(['username' => $request['username'], 'password' => $request['password']]);
+            $login = Auth::guard('dosen')->attempt($attempt_login);
 
         } elseif ($request['role'] == 'admin') {
-            $login = Auth::guard('adminakademik')->attempt(['username' => $request['username'], 'password' => $request['password']]);
+            $login = Auth::guard('admin_akademik')->attempt($attempt_login);
 
         } else {
             return "Error Login";
@@ -41,14 +44,14 @@ class AuthController extends Controller
     }
 
     public function getLogout(){
-        Auth::guard('adminakademik')->logout();
+        Auth::guard('admin_akademik')->logout();
         Auth::guard('dosen')->logout();
-        Auth::guard('web')->logout();
+        Auth::guard('mahasiswa')->logout();
         return redirect()->intended('/');
     }
 
-    public function getRegister(){ 
-        if(Auth::guard('adminakademik')->check() || Auth::guard('web')->check())
+    public function getRegister(){
+        if(Auth::guard('admin_akademik')->check() || Auth::guard('mahasiswa')->check() || Auth::guard('dosen')->check())
             return redirect('/');
         else
             return view('register');
@@ -79,6 +82,7 @@ class AuthController extends Controller
             }
 
             return "<script> alert('Account " . $request['role'] . " created, now you can login with your account'); document.location.href='/'</script>";
+
         }catch (QueryException $e){
             $errorCode = $e->errorInfo[1];
             if($errorCode == 1062){

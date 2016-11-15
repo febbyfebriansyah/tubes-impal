@@ -27,7 +27,7 @@ Route::post('/register', 'AuthController@postRegister');
 
 
 // Mahasiswa Routes
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth.mahasiswa'], function () {
     Route::get('/mahasiswa', 'MahasiswaController@home');
     Route::get('/mahasiswa/pembayaran', 'MahasiswaController@regist_bayar');
     Route::get('/mahasiswa/regist-matkul', 'MahasiswaController@regist_matkul');
@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 // Admin Routes
-Route::group(['middleware' => 'auth-admin'], function () {
+Route::group(['middleware' => 'auth.admin'], function () {
     Route::get('/admin', 'AdminAkademikController@home');
     Route::get('/admin/input-kelas', 'AdminAkademikController@input_kelas');
     Route::get('/admin/input-matkul', 'AdminAkademikController@input_matkul');
@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth-admin'], function () {
     Route::get('/admin/profile', 'AdminAkademikController@profile');
 });
 
-Route::group(['middleware' => 'auth-dosen'], function () {
+Route::group(['middleware' => 'auth.dosen'], function () {
     Route::get('/dosen', 'DosenController@home');
     Route::get('/dosen/input-nilai', 'DosenController@input_nilai');
     Route::get('/dosen/input-presensi', 'DosenController@input_presensi');

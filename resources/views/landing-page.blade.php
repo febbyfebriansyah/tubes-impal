@@ -13,18 +13,18 @@
         </div>
 
 
-        @if (Auth::guard('web')->check() || Auth::guard('adminakademik')->check() || Auth::guard('dosen')->check())
+        @if (Auth::guard('mahasiswa')->check() || Auth::guard('admin_akademik')->check() || Auth::guard('dosen')->check())
             <div class="col-md-6" style="padding-top: 100px">
                 <div class="panel panel-default" >
                     <div class="panel-heading">Your Account</div>
                     <div class="panel-body">
-                        @if (Auth::guard('web')->check())
-                            <p>Selamat Datang, <strong>{{ Auth::guard('web')->user()->name }}</strong></p>
+                        @if (Auth::guard('mahasiswa')->check())
+                            <p>Selamat Datang, <strong>{{ Auth::guard('mahasiswa')->user()->name }}</strong></p>
                             <a href="{{ url('/mahasiswa') }}"><i class="fa fa-btn fa-tachometer"></i>Go to Dasboard Mahasiswa</a>
                             <br><br>
 
-                        @elseif(Auth::guard('adminakademik')->check())
-                            <p>Selamat Datang, <strong>{{ Auth::guard('adminakademik')->user()->name }}</strong></p>
+                        @elseif(Auth::guard('admin_akademik')->check())
+                            <p>Selamat Datang, <strong>{{ Auth::guard('admin_akademik')->user()->name }}</strong></p>
                             <a href="{{ url('/admin') }}"><i class="fa fa-btn fa-tachometer"></i>Go to Dasboard Admin Akademik</a>
                             <br><br>
 

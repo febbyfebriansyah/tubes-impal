@@ -75,13 +75,13 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if (Auth::guard('web')->check() || Auth::guard('adminakademik')->check() || Auth::guard('dosen')->check())
+                    @if (Auth::guard('mahasiswa')->check() || Auth::guard('admin_akademik')->check() || Auth::guard('dosen')->check())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                @if (Auth::guard('web')->check())
-                                    {{ Auth::guard('web')->user()->name }}<span class="caret"></span>
-                                @elseif(Auth::guard('adminakademik')->check())
-                                    {{ Auth::guard('adminakademik')->user()->name }}<span class="caret"></span>
+                                @if (Auth::guard('mahasiswa')->check())
+                                    {{ Auth::guard('mahasiswa')->user()->name }}<span class="caret"></span>
+                                @elseif(Auth::guard('admin_akademik')->check())
+                                    {{ Auth::guard('admin_akademik')->user()->name }}<span class="caret"></span>
                                 @elseif(Auth::guard('dosen')->check())
                                     {{ Auth::guard('dosen')->user()->name }}<span class="caret"></span>
                                 @endif

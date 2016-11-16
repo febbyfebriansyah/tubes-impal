@@ -18,14 +18,61 @@ class Mahasiswa extends Authenticatable
         'name', 'username', 'password',
     ];
 
+    private $id;
+    private $nim;
+    private $nama;
+    private $alamat;
+    private $idKelas;
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function setId($id){
+        $this->id = $id;
+    }
+
+    public function getId(){
+        return $this->$id;
+    }
+
+    public function setNim($nim){
+        $this->nim = $nim;
+    }
+
+    public function getNim(){
+        return $this->$nim;
+    }
+
+    public function setNama($nama){
+        $this->nama = $nama;
+    }
+
+    public function getNama(){
+        return $this->$nama;
+    }
+
+    public function setAlamat($alamat){
+        $this->alamat = $alamat;
+    }
+
+    public function getAlamat(){
+        return $this->$alamat;
+    }
+
+    public function setIdKelas($idKelas){
+        $this->idKelas = $idKelas;
+    }
+
+    public function getIdKelas(){
+        return $this->$idKelas;
+    }
+    
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
 
     public function kelas(){
         return $this->belongsTo('App\Kelas');

@@ -18,6 +18,33 @@ class AdminAkademik extends Authenticatable
         'name', 'username', 'password',
     ];
 
+    private $id;
+    private $kodeAdmin;
+
+    public function setId($id){
+        $this->id = $id;
+    }
+
+    public function getId(){
+        return $this->$id;
+    }
+
+    public function setKodeAdmin($kodeAdmin){
+        $this->kodeAdmin = $kodeAdmin;
+    }
+
+    public function getKodeAdmin(){
+        return $this->$kodeAdmin;
+    }
+
+    public function manageMahasiswa(){
+        //
+    }
+
+    public function manageDosen(){
+        //
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

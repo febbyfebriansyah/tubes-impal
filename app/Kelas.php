@@ -9,6 +9,43 @@ class Kelas extends Model
     //
     protected $table = 'kelas';
 
+    private $id;
+    private $nama_kelas;
+    private $jurusan;
+    private $fakultas;
+
+    public function setId($id){
+    	$this->id = $id;
+    }
+
+    public function getId(){
+    	return $this->$id;
+    }
+
+    public function setNamaKelas($nama_kelas){
+    	$this->nama_kelas = $nama_kelas;
+    }
+
+    public function getNamaKelas(){
+    	return $this->$nama_kelas;
+    }
+
+    public function setJurusan($jurusan){
+    	$this->jurusan = $jurusan;
+    }
+
+    public function getJurusan(){
+    	return $this->$jurusan;
+    }
+
+    public function setFakultas($fakultas){
+    	$this->fakultas = $fakultas;
+    }
+
+    public function getFakultas(){
+    	return $this->$fakultas;
+    }
+
     public function mahasiswa(){
         return $this->hasMany('App\Mahasiswa');
     }

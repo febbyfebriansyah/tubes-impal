@@ -14,6 +14,7 @@ class Presensi extends Model
     private $idMhs;
     private $idMatkul;
     private $kehadiran;
+    private $tanggal;
 
     public function setId($id){
     	$this->id = $id;
@@ -29,6 +30,14 @@ class Presensi extends Model
 
     public function getKehadiran(){
     	return $this->$kehadiran;
+    }
+
+    public function setTanggal($tanggal){
+        $this->tanggal = $tanggal;
+    }
+
+    public function getTanggal(){
+        return $this->$tanggal;
     }
 
     public function getIdMhs(){

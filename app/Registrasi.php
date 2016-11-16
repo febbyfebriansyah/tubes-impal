@@ -12,6 +12,7 @@ class Registrasi extends Model
     private $id;
     private $status;
     private $semester;
+    private $token;
     private $idMhs;
 
     public function setId($id){
@@ -36,6 +37,14 @@ class Registrasi extends Model
 
     public function getSemester(){
     	return $this->$semester;
+    }
+
+    public function setToken($token){
+        $this->token = $token;
+    }
+
+    public function getToken(){
+        return $this->$token;
     }
 
     public function getIdMhs(){

@@ -67,6 +67,19 @@ class Mahasiswa extends Authenticatable
     public function getIdKelas(){
         return $this->$idKelas;
     }
+
+// *** Eloquent Relationship *** //
+    public function presensi(){
+        return $this->hasMany('app\Presensi');
+    }
+
+    public function registrasi(){
+        return $this->hasMany('app\Registrasi');
+    }
+
+    public function nilai(){
+        return $this->hasMany('app\Nilai');
+    }
     
     /**
      * The attributes that should be hidden for arrays.

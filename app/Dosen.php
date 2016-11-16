@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 
 class Dosen extends Authenticatable
 {
@@ -57,10 +58,18 @@ class Dosen extends Authenticatable
         return $this->$alamat;
     }
 
-    public function addDosen(){
-        //
+    public function addDosen(Request $request){
+        $dosen = new app\Dosen();
+        $dosen->setNama($request->nama);
+        $dosen->setNik($request->nik);
+        $dosen->setAlamat($request->alamat);
+        $dosen->save();
+
     }
 
+    public function mataKuliah(){
+        return $this->belongsToMany('app\MataKuliah');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

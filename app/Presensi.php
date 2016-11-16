@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Presensi extends Model
 {
@@ -31,26 +32,38 @@ class Presensi extends Model
     }
 
     public function getIdMhs(){
-    	//
+    	return $this->$idMhs;
     }
 
     public function getIdMatkul(){
-    	//
+    	return $this->idMatkul;
     }
 
-    public function addPresensi(){
-        //
+    public function addPresensi(Request $request){
+        $presensi = new app\Presensi();
+        $presensi->setId($request->id);
+        $presensi->setKehadiran($request->kehadiran);
+        $presensi->save();
     }
 
     public function getPresensi(){
-        //
+        return $this->getKehadiran();
     }
 
-    public function changePresensi(){
-        //
+    public function changePresensi($presensi){
+        $this->kehadiran = $presensi;
     }
 
-    public function deletePresensi(){
-        //
+    public function deletePresensi(app\Presensi $presensi){
+        $presensi->delete();
+    }
+
+// *** Eloquent Relationship *** //
+    public function mataKuliah(){
+        return $this->belongsTo('app\MataKuliah');
+    }
+
+    public function mahasiswa(){
+        return $this->belongsTo('app\Mahasiswa');
     }
 }

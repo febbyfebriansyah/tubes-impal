@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Nilai extends Model
 {
@@ -31,22 +32,34 @@ class Nilai extends Model
     }
 
     public function getIdMhs(){
-    	//
+    	return $this->$idMhs;
     }
 
     public function getIdMatkul(){
-    	//
+    	return $this->idMatkul;
     }
 
-    public function addNilai(){
-    	//
+    public function addNilai(Request $request){
+    	$nilai = new app\Nilai();
+        $nilai->setId($request->id);
+        $nilai->setNilai($request->nilai);
+        $nilai->save();
     }
 
-    public function changeNilai(){
-    	//
+    public function changeNilai($nilai){
+    	$this->nilai = $nilai;
     }
 
-    public function deleteNilai(){
-    	//
+    public function deleteNilai(app\Nilai $nilai){
+    	$nilai->delete();
     }
+// *** Eloquent Relationship *** //
+    public function mataKuliah(){
+        return $this->belongsTo('app\MataKuliah');
+    }
+
+    public function mahasiswa(){
+        return $this->belongsTo('app\Mahasiswa');
+    }
+
 }

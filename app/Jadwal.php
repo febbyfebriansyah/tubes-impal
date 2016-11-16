@@ -41,4 +41,14 @@ class Jadwal extends Model
     public function getWaktu(){
     	return $this->$waktu;
     }
+
+// *** Eloquent Relationship *** //
+    public function mataKuliah(){
+        return $this->belongsTo('app\MataKuliah');
+    }
+
+    public function kelas(){
+        return $this->belongsTo('app\Kelas');
+    }
+
 }

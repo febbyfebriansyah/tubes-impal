@@ -39,6 +39,10 @@ class Registrasi extends Model
     }
 
     public function getIdMhs(){
-    	//
+    	return $this->$idMhs;
+    }
+
+    public function mahasiswa(){
+        return $this->belongsTo('app\Mahasiswa');
     }
 }

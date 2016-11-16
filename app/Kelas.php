@@ -46,7 +46,12 @@ class Kelas extends Model
     	return $this->$fakultas;
     }
 
+// *** Eloquent Relationship *** //
     public function mahasiswa(){
-        return $this->hasMany('App\Mahasiswa');
+        return $this->hasMany('app\Mahasiswa');
+    }
+
+    public function jadwal(){
+        return $this->hasMany('app\Jadwal');
     }
 }

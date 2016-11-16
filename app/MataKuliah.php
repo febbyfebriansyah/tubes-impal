@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class MataKuliah extends Model
 {
@@ -46,7 +47,29 @@ class MataKuliah extends Model
     	return $this->$kode_dosen;
     }
 
-    public function addMatkul(){
-    	//
+    public function addMatkul(Request $request){
+    	$matkul = new app\MataKuliah();
+        $matkul->setId($request->id);
+        $matkul->setKode($request->kode);
+        $matkul->setNamaMatkul($request->nama_matkul);
+        $matkul->setKodeDosen($request->kode_dosen);
+        $matkul->save();
+    }
+
+// *** Eloquent Relationship *** //
+    public function dosen(){
+        return $this->belongsToMany('app\Dosen');
+    }
+
+    public function presensi(){
+        return $this->hasMany('app\Presensi');
+    }
+
+    public function nilai(){
+        return $this->hasMany('app\Nilai');
+    }
+
+    public function jadwal(){
+        return $this->hasMany('app\Jadwal');
     }
 }

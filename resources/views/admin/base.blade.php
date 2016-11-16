@@ -105,10 +105,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-user"></i> @yield('name_account')
+                                    <i class="fa fa-user"></i> {{ Auth::guard('admin_akademik')->user()->name }}
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="#"><i class="fa fa-user"></i> @yield('role_account') </a></li>
+                                <li><a href="#"><i class="fa fa-user"></i> Admin Akademik </a></li>
                                 <li class="divider"></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i> Log Out </a></li>
                               </ul>

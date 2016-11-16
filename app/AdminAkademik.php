@@ -11,7 +11,6 @@ class AdminAkademik extends Authenticatable
      *
      * @var array
      */
-    protected $guard = "adminakademik";
     protected $table = 'admin_akademik';
 
     protected $fillable = [

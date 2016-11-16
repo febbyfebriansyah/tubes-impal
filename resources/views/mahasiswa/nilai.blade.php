@@ -19,15 +19,6 @@
     Nilai
 @endsection
 
-
-@section('name_account')
-    {{ $mhs->name }}
-@endsection
-
-@section('role_account')
-    Mahasiswa
-@endsection
-
 @section('content')
 
     <div class="row">

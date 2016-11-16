@@ -12,7 +12,6 @@ class Dosen extends Authenticatable
      * @var array
      */
 
-    protected $guard = "dosen";
     protected $table = "dosen";
 
 

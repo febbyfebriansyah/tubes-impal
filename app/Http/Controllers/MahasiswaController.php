@@ -9,31 +9,32 @@ use Illuminate\Support\Facades\Auth;
 class MahasiswaController extends Controller
 {
     public function home(){
-        return view('mahasiswa.dashboard', ["mhs" => Auth::user()]);
+        return view('mahasiswa.dashboard');
     }
 
     public function regist_bayar(){
-        return view('mahasiswa.regist-bayar', ["mhs" => Auth::user()]);
+        return view('mahasiswa.regist-bayar');
     }
 
     public function regist_matkul(){
-        return view('mahasiswa.regist-matkul', ["mhs" => Auth::user()]);
+        return view('mahasiswa.regist-matkul');
     }
 
     public function jadwal(){
-        return view('mahasiswa.jadwal', ["mhs" => Auth::user()]);
+        return view('mahasiswa.jadwal');
     }
 
     public function nilai(){
-        return view('mahasiswa.nilai', ["mhs" => Auth::user()]);
+        return view('mahasiswa.nilai');
     }
 
     public function presensi(){
-        return view('mahasiswa.presensi', ["mhs" => Auth::user()]);
+        return view('mahasiswa.presensi');
     }
 
     public function profile(){
-        return view('mahasiswa.profile', ["mhs" => Auth::user()]);
+        $mhs = Auth::guard('mahasiswa')->user();
+        return view('mahasiswa.profile', ['mhs' => $mhs]);
     }
 
     public function postProfile(Request $request){

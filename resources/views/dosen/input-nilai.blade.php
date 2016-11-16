@@ -29,11 +29,6 @@
     Input Nilai
 @endsection
 
-
-@section('name_account')
-    {{ $user->name }}
-@endsection
-
 @section('content')
 
     <div class="row">

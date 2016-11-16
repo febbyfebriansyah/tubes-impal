@@ -18,15 +18,6 @@
     Input Mata Kuliah
 @endsection
 
-
-@section('name_account')
-    {{ $user->name }}
-@endsection
-
-@section('role_account')
-    Admin Akademik
-@endsection
-
 @section('content')
 
     <div class="row">

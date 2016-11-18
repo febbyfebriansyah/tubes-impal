@@ -28,7 +28,7 @@
                     <h4 class="title">Input Kelas</h4>
                 </div>
                 <div class="content">
-                    <form method="post" action="">
+                    <form method="post" action="{{url('admin/input-kelas')}}">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
@@ -73,16 +73,13 @@
                         <th>Fakultas</th>
                         </thead>
                         <tbody>
+                        @foreach($list_kelas as $kelas)
                         <tr>
-                            <td>IF-38-01</td>
-                            <td>Teknik Informatika</td>
-                            <td>Fakultas Informatika</td>
+                            <td>{{$kelas->kelas}}</td>
+                            <td>{{$kelas->jurusan}}</td>
+                            <td>{{$kelas->fakultas}}</td>
                         </tr>
-                        <tr>
-                            <td>IF-38-02</td>
-                            <td>Teknik Informatika</td>
-                            <td>Fakultas Informatika</td>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
 

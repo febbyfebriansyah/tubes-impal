@@ -42,7 +42,8 @@ Route::group(['middleware' => 'auth.mahasiswa'], function () {
 // Admin Routes
 Route::group(['middleware' => 'auth.admin'], function () {
     Route::get('/admin', 'AdminAkademikController@home');
-    Route::get('/admin/input-kelas', 'AdminAkademikController@input_kelas');
+    Route::get('/admin/input-kelas', 'KelasController@input_kelas');
+    Route::post('/admin/input-kelas', 'KelasController@submitKelas');
     Route::get('/admin/input-matkul', 'AdminAkademikController@input_matkul');
     Route::get('/admin/input-jadwal', 'AdminAkademikController@input_jadwal');
     Route::get('/admin/profile', 'AdminAkademikController@profile');

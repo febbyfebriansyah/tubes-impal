@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 
 class AdminAkademik extends Authenticatable
 {
@@ -36,12 +37,52 @@ class AdminAkademik extends Authenticatable
         return $this->$kodeAdmin;
     }
 
-    public function manageMahasiswa(){
-        //
+    // *** Manage Mahasiswa *** //
+    public function createMahasiswa(Request $request){
+        $mahasiswa = new app\Mahasiswa();
+        $mahasiswa->setId($request->id);
+        $mahasiswa->setNim($request->nim);
+        $mahasiswa->setNama($request->nama);
+        $mahasiswa->setAlamat($request->alamat);
+        $mahasiswa->setIdKelas($request->idKelas);
+        $mahasiswa->save();
     }
 
-    public function manageDosen(){
-        //
+    public function updateMahasiswa(Request $request){
+        $mahasiswa = app\Mahasiswa->find($request->id);
+        $mahasiswa->setNim($request->nim);
+        $mahasiswa->setNama($request->nama);
+        $mahasiswa->setAlamat($request->alamat);
+        $mahasiswa->setIdKelas($request->idKelas);
+        $mahasiswa->save();
+    }
+
+    public function deleteMahasiwa(Request $request){
+        $mahasiswa = app\Mahasiswa->find($request->id);
+        $mahasiswa->delete();
+    }
+
+    // *** Manage Dosen *** //
+    public function createDosen(Request $request){
+        $dosen = new app\Dosen();
+        $dosen->setId($request->id);
+        $dosen->setNama($request->nama);
+        $dosen->setNik($request->nik);
+        $dosen->setAlamat($request->alamat);
+        $dosen->save();
+    }
+
+    public function updateDosen(Request $request){
+        $dosen = app\Dosen->find($request->id);
+        $dosen->setNama($request->nama);
+        $dosen->setNik($request->nik);
+        $dosen->setAlamat($request->alamat);
+        $dosen->save();
+    }
+
+    public function deleteDosen(Request $request){
+        $dosen = app\Dosen->find($request->id);
+        $dosen->delete();
     }
 
     /**

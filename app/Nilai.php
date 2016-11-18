@@ -12,6 +12,7 @@ class Nilai extends Model
 
     private $id;
     private $nilai;
+    private $indeks;
     private $idMhs;
     private $idMatkul;
 
@@ -29,6 +30,14 @@ class Nilai extends Model
 
     public function getNilai(){
     	return $this->$nilai;
+    }
+
+    public function setIndeks($indeks){
+        $this->indeks = $indeks;
+    }
+
+    public function getIndeks(){
+        return $this->$indeks;
     }
 
     public function getIdMhs(){

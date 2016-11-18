@@ -28,6 +28,11 @@ class Mahasiswa extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function mahasiswa(){
+        $nilai = new app\Nilai();
+        $registrasi = new app\Registrasi();
+    }
+
     public function setId($id){
         $this->id = $id;
     }

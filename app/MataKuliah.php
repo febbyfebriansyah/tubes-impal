@@ -15,6 +15,11 @@ class MataKuliah extends Model
     private $nama_matkul;
     private $kode_dosen;
 
+    public function matakuliah(){
+        $nilai = new app\Nilai();
+        $jadwal = new app\Jadwal();
+    }
+
     public function setId($id){
     	$this->id = $id;
     }

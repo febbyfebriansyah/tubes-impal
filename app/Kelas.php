@@ -14,6 +14,10 @@ class Kelas extends Model
     private $jurusan;
     private $fakultas;
 
+    public function kelas(){
+        $jadwal = new app\Jadwal();
+    }
+
     public function setId($id){
     	$this->id = $id;
     }

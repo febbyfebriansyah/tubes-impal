@@ -27,7 +27,7 @@
                     <h4 class="title">Input Mata Kuliah</h4>
                 </div>
                 <div class="content">
-                    <form method="post" action="">
+                    <form method="post" action="{{ url('admin/input-matkul') }}">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
@@ -42,7 +42,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Nama Mata Kuliah</label>
-                                    <input name="jurusan" type="text" class="form-control" required>
+                                    <input name="mata-kuliah" type="text" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-4">

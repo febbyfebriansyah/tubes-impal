@@ -45,6 +45,8 @@ Route::group(['middleware' => 'auth.admin'], function () {
     Route::get('/admin/input-kelas', 'KelasController@input_kelas');
     Route::post('/admin/input-kelas', 'KelasController@submitKelas');
     Route::get('/admin/input-matkul', 'AdminAkademikController@input_matkul');
+    Route::post('/admin/input-matkul', 'MataKuliahController@submitMatkul');
+
     Route::get('/admin/input-jadwal', 'AdminAkademikController@input_jadwal');
     Route::get('/admin/profile', 'AdminAkademikController@profile');
 });

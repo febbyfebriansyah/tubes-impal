@@ -26,7 +26,7 @@ class AdminAkademik extends Authenticatable
     }
 
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
 
     public function setKodeAdmin($kodeAdmin){
@@ -34,12 +34,12 @@ class AdminAkademik extends Authenticatable
     }
 
     public function getKodeAdmin(){
-        return $this->$kodeAdmin;
+        return $this->kodeAdmin;
     }
 
     // *** Manage Mahasiswa *** //
     public function createMahasiswa(Request $request){
-        $mahasiswa = new app\Mahasiswa();
+        $mahasiswa = new Mahasiswa();
         $mahasiswa->setId($request->id);
         $mahasiswa->setNim($request->nim);
         $mahasiswa->setNama($request->nama);
@@ -49,7 +49,7 @@ class AdminAkademik extends Authenticatable
     }
 
     public function updateMahasiswa(Request $request){
-        $mahasiswa = app\Mahasiswa->find($request->id);
+        $mahasiswa = Mahasiswa::find($request->id);
         $mahasiswa->setNim($request->nim);
         $mahasiswa->setNama($request->nama);
         $mahasiswa->setAlamat($request->alamat);
@@ -58,13 +58,13 @@ class AdminAkademik extends Authenticatable
     }
 
     public function deleteMahasiwa(Request $request){
-        $mahasiswa = app\Mahasiswa->find($request->id);
+        $mahasiswa = Mahasiswa::find($request->id);
         $mahasiswa->delete();
     }
 
     // *** Manage Dosen *** //
     public function createDosen(Request $request){
-        $dosen = new app\Dosen();
+        $dosen = new Dosen();
         $dosen->setId($request->id);
         $dosen->setNama($request->nama);
         $dosen->setNik($request->nik);
@@ -73,7 +73,7 @@ class AdminAkademik extends Authenticatable
     }
 
     public function updateDosen(Request $request){
-        $dosen = app\Dosen->find($request->id);
+        $dosen = Dosen::find($request->id);
         $dosen->setNama($request->nama);
         $dosen->setNik($request->nik);
         $dosen->setAlamat($request->alamat);
@@ -81,7 +81,7 @@ class AdminAkademik extends Authenticatable
     }
 
     public function deleteDosen(Request $request){
-        $dosen = app\Dosen->find($request->id);
+        $dosen = Dosen::find($request->id);
         $dosen->delete();
     }
 

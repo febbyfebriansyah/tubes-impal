@@ -25,6 +25,10 @@ class AdminAkademikController extends Controller
         return view('admin.input-jadwal');
     }
 
+    public function input_mahasiswa(){
+        return view('admin.input-mahasiswa');
+    }
+
     public function profile(){
         $user = Auth::guard('admin_akademik')->user();
         return view('admin.profile', ["user" => $user]);

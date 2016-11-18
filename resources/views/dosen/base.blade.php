@@ -138,7 +138,7 @@
         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-left">
-                    &copy; 2016 Tubes RPL.inc
+                    &copy; 2016 Tubes IMPAL.inc
                 </p>
             </div>
         </footer>

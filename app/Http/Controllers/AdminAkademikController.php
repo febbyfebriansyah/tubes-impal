@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,8 @@ class AdminAkademikController extends Controller
     }
 
     public function input_matkul(){
-        return view('admin.input-matkul');
+        $list_kelas = Kelas::all();
+        return view('admin.input-matkul', ["list_kelas" => $list_kelas]);
     }
 
     public function input_jadwal(){

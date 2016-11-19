@@ -32,7 +32,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Nama Kelas</label>
+                                    <label>Kode Kelas</label>
                                     {{ csrf_field() }}
                                     <input name="kelas" type="text" class="form-control" required>
                                 </div>
@@ -75,7 +75,7 @@
                         <tbody>
                         @foreach($list_kelas as $kelas)
                         <tr>
-                            <td>{{$kelas->kelas}}</td>
+                            <td>{{$kelas->kode}}</td>
                             <td>{{$kelas->jurusan}}</td>
                             <td>{{$kelas->fakultas}}</td>
                         </tr>

@@ -35,7 +35,9 @@
                                     {{ csrf_field() }}
                                     <select class="form-control" required>
                                         <option selected="selected" disabled>Pilih kelas</option>
-                                        <option>IF-38-01</option>
+                                        @foreach($list_kelas as $kelas)
+                                            <option value="{{ $kelas->id }}">{{ $kelas->kode }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

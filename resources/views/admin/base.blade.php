@@ -14,7 +14,6 @@
     <link href="{{url('assets/css/animate.min.css')}}a" rel="stylesheet"/>
     <link href="{{url('assets/css/light-bootstrap-dashboard.css')}}" rel="stylesheet"/>
 
-
     {{--<!--     Fonts and icons     -->--}}
     <link href="{{ url('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href='{{ url('bower_components/roboto-fontface/css/roboto/roboto-fontface.css') }}' rel='stylesheet'>

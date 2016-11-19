@@ -14,7 +14,7 @@ class KelasController extends Controller
         $fakultas = $request->input('fakultas');
         
         $obj_kelas = new Kelas();
-        $obj_kelas->kelas = $kelas;
+        $obj_kelas->kode = $kelas;
         $obj_kelas->jurusan = $jurusan;
         $obj_kelas->fakultas = $fakultas;
         $obj_kelas->save();

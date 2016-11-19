@@ -13,16 +13,16 @@ class AdminAkademikController extends Controller
         return view('admin.dashboard');
     }
 
-    public function input_kelas(){
-        return view('admin.input-kelas');
-    }
-
     public function input_matkul(){
         return view('admin.input-matkul');
     }
 
     public function input_jadwal(){
         return view('admin.input-jadwal');
+    }
+
+    public function input_mahasiswa(){
+        return view('admin.input-mahasiswa');
     }
 
     public function profile(){

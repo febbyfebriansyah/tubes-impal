@@ -56,6 +56,13 @@
                     </a>
                 </li>
 
+                <li class="@yield('activemahasiswa')">
+                    <a href="{{ url('/admin/input-mahasiswa') }}">
+                        <i class="fa fa-user-circle"></i>
+                        <p>Input Mahasiswa</p>
+                    </a>
+                </li>
+
                 <li class="@yield('activekelas')">
                     <a href="{{ url('/admin/input-kelas') }}">
                         <i class="fa fa-group"></i>

@@ -23,7 +23,7 @@ class Kelas extends Model
     }
 
     public function getId(){
-    	return $this->$id;
+    	return $this->id;
     }
 
     public function setNamaKelas($nama_kelas){
@@ -31,7 +31,7 @@ class Kelas extends Model
     }
 
     public function getNamaKelas(){
-    	return $this->$nama_kelas;
+    	return $this->nama_kelas;
     }
 
     public function setJurusan($jurusan){
@@ -39,7 +39,7 @@ class Kelas extends Model
     }
 
     public function getJurusan(){
-    	return $this->$jurusan;
+    	return $this->jurusan;
     }
 
     public function setFakultas($fakultas){
@@ -47,7 +47,7 @@ class Kelas extends Model
     }
 
     public function getFakultas(){
-    	return $this->$fakultas;
+    	return $this->fakultas;
     }
 
 // *** Eloquent Relationship *** //

@@ -15,7 +15,7 @@ class Mahasiswa extends Authenticatable
     protected $table = 'mahasiswa';
     
     protected $fillable = [
-        'name', 'username', 'password',
+        'name', 'username', 'password', 'kelas_id'
     ];
 
     private $id;
@@ -70,6 +70,7 @@ class Mahasiswa extends Authenticatable
     }
 
 // *** Eloquent Relationship *** //
+
     public function presensi(){
         return $this->hasMany('App\Presensi');
     }
@@ -88,6 +89,7 @@ class Mahasiswa extends Authenticatable
      * @var array
      */
 
+    // Tested
     public function kelas(){
         return $this->belongsTo('App\Kelas');
     }

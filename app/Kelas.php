@@ -57,6 +57,6 @@ class Kelas extends Model
     }
 
     public function mataKuliah(){
-        return $this->hasMany('App\MataKuliah', 'id');
+        return $this->hasMany('App\MataKuliah');
     }
 }

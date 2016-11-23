@@ -44,11 +44,7 @@ class Jadwal extends Model
 
 // *** Eloquent Relationship *** //
     public function mataKuliah(){
-        return $this->belongsTo('App\MataKuliah');
-    }
-
-    public function kelas(){
-        return $this->belongsTo('App\Kelas');
+        return $this->belongsTo('App\MataKuliah', "matakuliah_id");
     }
 
 }

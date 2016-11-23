@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(AccountSeeder::class);
         $this->call(KelasSeeder::class);
+        $this->call(MataKuliahSeeder::class);
+
         $this->command->info('SIA seeds finished.');
     }
 }

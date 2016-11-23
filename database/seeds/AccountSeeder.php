@@ -30,18 +30,33 @@ class AccountSeeder extends Seeder
             'password' => Hash::make('qwerty123'),
         ]);
 
+        Dosen::create([
+            'username' => "bambang",
+            'name' => "Bambang Ari Wahyudi",
+            'kode' => "BBD",
+            'password' => Hash::make('qwerty123'),
+        ]);
+
+        Dosen::create([
+            'username' => "suyanto",
+            'name' => "Suyanto",
+            'kode' => "SUO",
+            'password' => Hash::make('qwerty123'),
+        ]);
+
+        Dosen::create([
+            'username' => "tisa",
+            'name' => "Siti Saadah",
+            'kode' => "SSD",
+            'password' => Hash::make('qwerty123'),
+        ]);
+
+
         AdminAkademik::create([
             'username' => "admin",
             'name' => "Mimin Sejati",
             'password' => Hash::make('qwerty123'),
         ]);
 
-//        $kelas1 = Kelas::create(array(
-//            'kelas' => "IF-38-01"
-//        ));
-//
-//        $kelas2 = Kelas::create(array(
-//            'kelas' => "IF-38-02s"
-//        ));
     }
 }

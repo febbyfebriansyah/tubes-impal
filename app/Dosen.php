@@ -67,7 +67,7 @@ class Dosen extends Authenticatable
     }
 
     public function mataKuliah(){
-        return $this->belongsToMany('MataKuliah');
+        return $this->hasMany('App\MataKuliah');
     }
 
     /**

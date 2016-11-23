@@ -65,11 +65,13 @@
                             <div class="form-group">
                                 <label>Nama Kelas</label>
                                 {{ csrf_field() }}
-                                <select class="form-control" data-selectsplitter-selector>
+                                <select name="kelas" class="form-control" data-selectsplitter-selector>
                                     @foreach($list_kelas as $kelas)
                                     <optgroup label="{{ $kelas->kode }}">
-                                        @foreach($kelas->mataKuliah() as $matkul)
-                                            <option value="1">{{ $matkul->nama }} - BBD</option>
+                                        @foreach($kelas->mataKuliah as $matkul)
+                                            @if($matkul->jadwal == null)
+                                                <option value="{{ $matkul->id }}">{{ $matkul->nama }} - {{ $matkul->dosen->kode }}</option>
+                                            @endif
                                         @endforeach
                                     </optgroup>
                                     @endforeach
@@ -131,6 +133,39 @@
 
                     <button type="submit" class="btn btn-info btn-fill ">Submit</button>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Daftar Jadwal</h4>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover">
+                    <thead>
+                        <th>Kelas</th>
+                        <th>Mata Kuliah</th>
+                        <th>Dosen</th>
+                        <th>Waktu</th>
+                        <th>Ruangan</th>
+                    </thead>
+                    <tbody>
+                    @foreach($list_jadwal as $jadwal)
+                        <tr>
+                            <td>{{ $jadwal->mataKuliah->kelas->kode }}</td>
+                            <td>{{ $jadwal->mataKuliah->nama }}</td>
+                            <td>{{ $jadwal->mataKuliah->dosen->name }}</td>
+                            <td>{{ $jadwal->hari }} {{ $jadwal->waktu }}</td>
+                            <td>{{ $jadwal->ruangan }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>

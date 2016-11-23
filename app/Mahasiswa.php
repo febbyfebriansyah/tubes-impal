@@ -28,17 +28,13 @@ class Mahasiswa extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function mahasiswa(){
-        $nilai = new app\Nilai();
-        $registrasi = new app\Registrasi();
-    }
 
     public function setId($id){
         $this->id = $id;
     }
 
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
 
     public function setNim($nim){
@@ -46,7 +42,7 @@ class Mahasiswa extends Authenticatable
     }
 
     public function getNim(){
-        return $this->$nim;
+        return $this->nim;
     }
 
     public function setNama($nama){
@@ -54,7 +50,7 @@ class Mahasiswa extends Authenticatable
     }
 
     public function getNama(){
-        return $this->$nama;
+        return $this->nama;
     }
 
     public function setAlamat($alamat){
@@ -62,7 +58,7 @@ class Mahasiswa extends Authenticatable
     }
 
     public function getAlamat(){
-        return $this->$alamat;
+        return $this->alamat;
     }
 
     public function setIdKelas($idKelas){
@@ -70,20 +66,20 @@ class Mahasiswa extends Authenticatable
     }
 
     public function getIdKelas(){
-        return $this->$idKelas;
+        return $this->idKelas;
     }
 
 // *** Eloquent Relationship *** //
     public function presensi(){
-        return $this->hasMany('app\Presensi');
+        return $this->hasMany('App\Presensi');
     }
 
     public function registrasi(){
-        return $this->hasMany('app\Registrasi');
+        return $this->hasMany('App\Registrasi');
     }
 
     public function nilai(){
-        return $this->hasMany('app\Nilai');
+        return $this->hasMany('App\Nilai');
     }
     
     /**

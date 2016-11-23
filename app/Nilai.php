@@ -21,7 +21,7 @@ class Nilai extends Model
     }
 
     public function getId(){
-    	return $this->$id;
+    	return $this->id;
     }
 
     public function setNilai($nilai){
@@ -29,7 +29,7 @@ class Nilai extends Model
     }
 
     public function getNilai(){
-    	return $this->$nilai;
+    	return $this->nilai;
     }
 
     public function setIndeks($indeks){
@@ -37,11 +37,11 @@ class Nilai extends Model
     }
 
     public function getIndeks(){
-        return $this->$indeks;
+        return $this->indeks;
     }
 
     public function getIdMhs(){
-    	return $this->$idMhs;
+    	return $this->idMhs;
     }
 
     public function getIdMatkul(){
@@ -49,7 +49,7 @@ class Nilai extends Model
     }
 
     public function addNilai(Request $request){
-    	$nilai = new app\Nilai();
+    	$nilai = new Nilai();
         $nilai->setId($request->id);
         $nilai->setNilai($request->nilai);
         $nilai->save();
@@ -59,16 +59,16 @@ class Nilai extends Model
     	$this->nilai = $nilai;
     }
 
-    public function deleteNilai(app\Nilai $nilai){
+    public function deleteNilai(Nilai $nilai){
     	$nilai->delete();
     }
 // *** Eloquent Relationship *** //
     public function mataKuliah(){
-        return $this->belongsTo('app\MataKuliah');
+        return $this->belongsTo('App\MataKuliah');
     }
 
     public function mahasiswa(){
-        return $this->belongsTo('app\Mahasiswa');
+        return $this->belongsTo('App\Mahasiswa');
     }
 
 }

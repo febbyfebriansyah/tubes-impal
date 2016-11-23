@@ -44,14 +44,15 @@ Route::group(['middleware' => 'auth.admin'], function () {
     Route::get('/admin', 'AdminAkademikController@home');
     Route::get('/admin/input-kelas', 'KelasController@input_kelas');
     Route::post('/admin/input-kelas', 'KelasController@submitKelas');
-    Route::get('/admin/input-matkul', 'AdminAkademikController@input_matkul');
+    Route::get('/admin/input-matkul', 'MataKuliahController@getMatkul');
     Route::post('/admin/input-matkul', 'MataKuliahController@submitMatkul');
-
-    Route::get('/admin/input-jadwal', 'AdminAkademikController@input_jadwal');
+    Route::get('/admin/input-jadwal', 'JadwalController@input_jadwal');
+    Route::post('/admin/input-jadwal', 'JadwalController@submitJadwal');
     Route::get('admin/input-mahasiswa', 'AdminAkademikController@input_mahasiswa');
     Route::get('/admin/profile', 'AdminAkademikController@profile');
 });
 
+// Dosen Router
 Route::group(['middleware' => 'auth.dosen'], function () {
     Route::get('/dosen', 'DosenController@home');
     Route::get('/dosen/input-nilai', 'DosenController@input_nilai');

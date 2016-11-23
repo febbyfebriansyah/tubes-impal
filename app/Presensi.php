@@ -21,7 +21,7 @@ class Presensi extends Model
     }
 
     public function getId(){
-    	return $this->$id;
+    	return $this->id;
     }
 
     public function setKehadiran($kehadiran){
@@ -29,7 +29,7 @@ class Presensi extends Model
     }
 
     public function getKehadiran(){
-    	return $this->$kehadiran;
+    	return $this->kehadiran;
     }
 
     public function setTanggal($tanggal){
@@ -37,11 +37,11 @@ class Presensi extends Model
     }
 
     public function getTanggal(){
-        return $this->$tanggal;
+        return $this->tanggal;
     }
 
     public function getIdMhs(){
-    	return $this->$idMhs;
+    	return $this->idMhs;
     }
 
     public function getIdMatkul(){
@@ -49,7 +49,7 @@ class Presensi extends Model
     }
 
     public function addPresensi(Request $request){
-        $presensi = new app\Presensi();
+        $presensi = new Presensi();
         $presensi->setId($request->id);
         $presensi->setKehadiran($request->kehadiran);
         $presensi->save();
@@ -63,16 +63,16 @@ class Presensi extends Model
         $this->kehadiran = $presensi;
     }
 
-    public function deletePresensi(app\Presensi $presensi){
+    public function deletePresensi(Presensi $presensi){
         $presensi->delete();
     }
 
 // *** Eloquent Relationship *** //
     public function mataKuliah(){
-        return $this->belongsTo('app\MataKuliah');
+        return $this->belongsTo('App\MataKuliah');
     }
 
     public function mahasiswa(){
-        return $this->belongsTo('app\Mahasiswa');
+        return $this->belongsTo('App\Mahasiswa');
     }
 }

@@ -22,6 +22,9 @@ class CreateMataKuliahsTable extends Migration
             $table->integer('kelas_id')->unsigned()->nullable();
             $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
 
+            $table->integer('sks');
+            $table->string('kode');
+            $table->string('nama');
 
 
         });

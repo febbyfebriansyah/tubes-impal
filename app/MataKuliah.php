@@ -63,18 +63,23 @@ class MataKuliah extends Model
 
 // *** Eloquent Relationship *** //
     public function dosen(){
-        return $this->belongsToMany('app\Dosen');
+        return $this->belongsTo('App\Dosen');
     }
 
     public function presensi(){
-        return $this->hasMany('app\Presensi');
+        return $this->hasMany('App\Presensi');
     }
 
     public function nilai(){
-        return $this->hasMany('app\Nilai');
+        return $this->hasMany('App\Nilai');
     }
 
     public function jadwal(){
-        return $this->hasMany('app\Jadwal');
+        return $this->hasMany('App\Jadwal');
     }
+
+    public function kelas(){
+        return $this->belongsTo('App\Kelas', 'kelas_id');
+    }
+
 }

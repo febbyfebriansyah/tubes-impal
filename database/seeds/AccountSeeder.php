@@ -26,6 +26,7 @@ class AccountSeeder extends Seeder
         Dosen::create([
             'username' => "dosen",
             'name' => "Dosen Dummy",
+            'kode' => "DMY",
             'password' => Hash::make('qwerty123'),
         ]);
 

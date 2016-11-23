@@ -17,7 +17,7 @@ class Dosen extends Authenticatable
 
 
     protected $fillable = [
-        'name', 'username', 'password',
+        'name', 'username', 'password', 'kode'
     ];
 
     private $id;
@@ -30,7 +30,7 @@ class Dosen extends Authenticatable
     }
 
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
 
     public function setNama($nama){
@@ -38,7 +38,7 @@ class Dosen extends Authenticatable
     }
 
     public function getNama(){
-        return $this->$nama;
+        return $this->nama;
     }
 
     public function setNik($nik){
@@ -46,7 +46,7 @@ class Dosen extends Authenticatable
     }
 
     public function getNik(){
-        return $this->$nik;
+        return $this->nik;
     }
 
     public function setAlamat($alamat){
@@ -54,11 +54,11 @@ class Dosen extends Authenticatable
     }
 
     public function getAlamat(){
-        return $this->$alamat;
+        return $this->alamat;
     }
 
     public function addDosen(Request $request){
-        $dosen = new app\Dosen();
+        $dosen = new Dosen();
         $dosen->setNama($request->nama);
         $dosen->setNik($request->nik);
         $dosen->setAlamat($request->alamat);
@@ -67,7 +67,7 @@ class Dosen extends Authenticatable
     }
 
     public function mataKuliah(){
-        return $this->belongsToMany('app\MataKuliah');
+        return $this->belongsToMany('MataKuliah');
     }
 
     /**

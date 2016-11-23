@@ -20,7 +20,8 @@ class CreateMahasiswasTable extends Migration
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('password');
-            $table->string('kelas')->nullable();
+            $table->integer('kelas_id')->unsigned()->nullable();
+            $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');            
             $table->string('alamat')->nullable();
             $table->rememberToken();
             $table->timestamps();

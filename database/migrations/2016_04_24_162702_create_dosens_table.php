@@ -20,6 +20,7 @@ class CreateDosensTable extends Migration
             $table->string('email')->nullable();
             $table->string('password');
             $table->string('role')->nullable();
+            $table->string('kode')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

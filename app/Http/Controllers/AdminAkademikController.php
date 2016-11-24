@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kelas;
 use App\Mahasiswa;
+use App\Dosen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -43,6 +44,28 @@ class AdminAkademikController extends Controller
 
         return redirect('admin/input-mahasiswa');
 
+    }
+
+    public function input_dosen(){
+        return view('admin.input-dosen');
+    }
+
+    public function postDosen(Request $request){
+        $nama = $request->input('nama');
+        $nip = $request->input('nip');
+        $kode = $request->input('kode');
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        $new_dosen = new Dosen();
+        $new_dosen->nip = $nip;
+        $new_dosen->name = $nama;
+        $new_dosen->kode = $kode;
+        $new_dosen->username = $username;
+        $new_dosen->password = $password;
+        $new_dosen->save();
+
+        return redirect('admin/input-dosen');
     }
 
     public function profile(){

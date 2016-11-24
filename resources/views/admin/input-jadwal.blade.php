@@ -55,7 +55,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="header">
-                <h4 class="title">Input Mata Kuliah</h4>
+                <h4 class="title">Input Jadwal</h4>
             </div>
             <div class="content">
                 <form method="post" action="">
@@ -138,38 +138,38 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="header">
-                <h4 class="title">Daftar Jadwal</h4>
-            </div>
-            <div class="content table-responsive table-full-width">
-                <table class="table table-hover">
-                    <thead>
-                        <th>Kelas</th>
-                        <th>Mata Kuliah</th>
-                        <th>Dosen</th>
-                        <th>Waktu</th>
-                        <th>Ruangan</th>
-                    </thead>
-                    <tbody>
-                    @foreach($list_jadwal as $jadwal)
-                        <tr>
-                            <td>{{ $jadwal->mataKuliah->kelas->kode }}</td>
-                            <td>{{ $jadwal->mataKuliah->nama }}</td>
-                            <td>{{ $jadwal->mataKuliah->dosen->name }}</td>
-                            <td>{{ $jadwal->hari }} {{ $jadwal->waktu }}</td>
-                            <td>{{ $jadwal->ruangan }}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Daftar Jadwal</h4>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-hover">
+                        <thead>
+                            <th>Kelas</th>
+                            <th>Mata Kuliah</th>
+                            <th>Dosen</th>
+                            <th>Waktu</th>
+                            <th>Ruangan</th>
+                        </thead>
+                        <tbody>
+                        @foreach($list_jadwal as $jadwal)
+                            <tr>
+                                <td>{{ $jadwal->mataKuliah->kelas->kode }}</td>
+                                <td>{{ $jadwal->mataKuliah->nama }}</td>
+                                <td>{{ $jadwal->mataKuliah->dosen->name }}</td>
+                                <td>{{ $jadwal->hari }} {{ $jadwal->waktu }}</td>
+                                <td>{{ $jadwal->ruangan }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
 
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 @endsection

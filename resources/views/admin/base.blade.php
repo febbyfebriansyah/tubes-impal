@@ -60,6 +60,13 @@
                     </a>
                 </li>
 
+                <li class="@yield('activedosen')">
+                    <a href="{{ url('/admin/input-dosen') }}">
+                        <i class="fa fa-user-circle-o"></i>
+                        <p>Input Dosen</p>
+                    </a>
+                </li>
+
                 <li class="@yield('activekelas')">
                     <a href="{{ url('/admin/input-kelas') }}">
                         <i class="fa fa-group"></i>

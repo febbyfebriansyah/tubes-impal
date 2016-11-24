@@ -12,7 +12,10 @@
     @endsection
 
 @section('addjs')
-
+    <script src="{{ url('bower_components/chained/jquery.chained.min.js') }}"></script>
+    <script>
+        $("#fakultas").chained("#jurusan");
+    </script>
 @endsection
 
 @section('nav_position')
@@ -40,13 +43,25 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Jurusan</label>
-                                    <input name="jurusan" type="text" class="form-control" required>
+                                    <select id="jurusan" name="jurusan" class="form-control" required>
+                                      <option value="">--</option>
+                                      <option value="Informatika">Informatika</option>
+                                      <option value="Teknik Elektro">Teknik Elektro</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label >Fakultas</label>
-                                    <input name="fakultas" type="text" class="form-control" required>
+                                    <select id="fakultas" name="fakultas" class="form-control" required>
+                                      <option value="">--</option>
+                                      <option value="" class="Informatika">S1 Teknik Informatika</option>
+                                      <option value="" class="Informatika">S1 Ilmu Komputasi</option>
+                                      <option value="" class="Teknik Elektro">S1 Teknik Elektro</option>
+                                      <option value="" class="Teknik Elektro">S1 Teknik Telekomunikasi</option>
+                                      <option value="" class="Teknik Elektro">S1 Teknik Fisika</option>
+                                    </select>
+
                                 </div>
                             </div>
                         </div>

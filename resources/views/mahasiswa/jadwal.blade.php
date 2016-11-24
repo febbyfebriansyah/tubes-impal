@@ -36,18 +36,23 @@
                         <th>Ruang</th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Matematika Diskrit</td>
-                            <td>Bambang Ari Wahyudi</td>
-                            <td>Senin / 18.30 - 20.30</td>
-                            <td>KU3.01.10</td>
-                        </tr>
-                        <tr>
-                            <td>Kalkulus II</td>
-                            <td>Azikin</td>
-                            <td>Senin / 18.30 - 20.30</td>
-                            <td>KU3.01.10</td>
-                        </tr>
+                        @if(Auth::guard('mahasiswa')->user()->kelas != null)
+                            @foreach(Auth::user()->kelas->mataKuliah as $matkul)
+                                <tr>
+                                    <td>{{ $matkul->nama }}</td>
+                                    <td>{{ $matkul->dosen->kode }}</td>
+                                    @if($matkul->jadwal == null)
+                                        <td>BELUM TERJADWAL</td>
+                                        <td>BELUM TERJADWAL</td>
+
+                                    @else
+                                        <td>{{ $matkul->jadwal->hari }} {{ $matkul->jadwal->waktu }}</td>
+                                        <td>{{ $matkul->jadwal->ruangan }}</td>
+
+                                    @endif
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
 

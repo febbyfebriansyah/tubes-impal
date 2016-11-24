@@ -16,15 +16,7 @@ class AdminAkademikController extends Controller
         return view('admin.dashboard');
     }
 
-    public function input_matkul(){
-        $list_kelas = Kelas::all();
-        return view('admin.input-matkul', ["list_kelas" => $list_kelas]);
-    }
-
-    public function input_jadwal(){
-        return view('admin.input-jadwal');
-    }
-
+    
     public function input_mahasiswa(){
         $list_kelas = Kelas::all();
         return view('admin.input-mahasiswa', ["list_kelas" => $list_kelas]);

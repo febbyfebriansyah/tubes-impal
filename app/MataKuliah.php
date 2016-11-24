@@ -15,17 +15,13 @@ class MataKuliah extends Model
     private $nama_matkul;
     private $kode_dosen;
 
-    public function matakuliah(){
-        $nilai = new app\Nilai();
-        $jadwal = new app\Jadwal();
-    }
 
     public function setId($id){
     	$this->id = $id;
     }
 
     public function getId(){
-    	return $this->$id;
+    	return $this->id;
     }
 
     public function setKode($kode){
@@ -33,7 +29,7 @@ class MataKuliah extends Model
     }
 
     public function getKode(){
-    	return $this->$kode;
+    	return $this->kode;
     }
 
     public function setNamaMatkul($nama_matkul){
@@ -41,7 +37,7 @@ class MataKuliah extends Model
     }
 
     public function getNamaMatkul(){
-    	return $this->$nama_matkul;
+    	return $this->nama_matkul;
     }
 
     public function setKodeDosen($kode_dosen){
@@ -49,11 +45,11 @@ class MataKuliah extends Model
     }
 
     public function getKodeDosen(){
-    	return $this->$kode_dosen;
+    	return $this->kode_dosen;
     }
 
     public function addMatkul(Request $request){
-    	$matkul = new app\MataKuliah();
+    	$matkul = new MataKuliah();
         $matkul->setId($request->id);
         $matkul->setKode($request->kode);
         $matkul->setNamaMatkul($request->nama_matkul);
@@ -62,19 +58,28 @@ class MataKuliah extends Model
     }
 
 // *** Eloquent Relationship *** //
+
+    // tested - kinto -d
     public function dosen(){
-        return $this->belongsToMany('app\Dosen');
+        return $this->belongsTo('App\Dosen');
     }
 
     public function presensi(){
-        return $this->hasMany('app\Presensi');
+        return $this->hasMany('App\Presensi');
     }
 
     public function nilai(){
-        return $this->hasMany('app\Nilai');
+        return $this->hasMany('App\Nilai');
     }
 
+    // tested kinto-d
     public function jadwal(){
-        return $this->hasMany('app\Jadwal');
+        return $this->belongsTo('App\Jadwal', 'id', 'matakuliah_id');
     }
+
+    // tested-kinto-d
+    public function kelas(){
+        return $this->belongsTo('App\Kelas', 'kelas_id');
+    }
+
 }

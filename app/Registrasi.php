@@ -20,7 +20,7 @@ class Registrasi extends Model
     }
 
     public function getId(){
-    	return $this->$id;
+    	return $this->id;
     }
 
     public function setStatus($status){
@@ -28,7 +28,7 @@ class Registrasi extends Model
     }
 
     public function getStatus(){
-    	return $this->$status;
+    	return $this->status;
     }
 
     public function setSemester($semester){
@@ -36,7 +36,7 @@ class Registrasi extends Model
     }
 
     public function getSemester(){
-    	return $this->$semester;
+    	return $this->semester;
     }
 
     public function setToken($token){
@@ -44,14 +44,14 @@ class Registrasi extends Model
     }
 
     public function getToken(){
-        return $this->$token;
+        return $this->token;
     }
 
     public function getIdMhs(){
-    	return $this->$idMhs;
+    	return $this->idMhs;
     }
 
     public function mahasiswa(){
-        return $this->belongsTo('app\Mahasiswa');
+        return $this->belongsTo('App\Mahasiswa');
     }
 }

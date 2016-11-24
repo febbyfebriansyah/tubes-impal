@@ -37,24 +37,26 @@
                 <div class="content table-responsive table-full-width">
                     <table class="table table-hover">
                         <thead>
-                        <th>Mata Kuliah</th>
-                        <th>Kelas</th>
-                        <th>Ruangan</th>
-                        <th>Hari / Jam</th>
-                        </thead>
+                            <th>Mata Kuliah</th>
+                            <th>Kelas</th>
+                            <th>Ruangan</th>
+                            <th>Hari / Jam</th>
+                            </thead>
                         <tbody>
+                        @foreach(Auth::guard('dosen')->user()->mataKuliah as $matkul)
                         <tr>
-                            <td>Matematika Diskrit</td>
-                            <td>IF-38-01</td>
-                            <td>A208B</td>
-                            <td>Senin / 10.30 - 12.30</td>
+                            <td>{{ $matkul->nama }}</td>
+                            <td>{{ $matkul->kelas->kode }}</td>
+                            @if($matkul->jadwal)
+                                <td>{{ $matkul->jadwal->ruangan }}</td>
+                                <td>{{ $matkul->jadwal->hari }} {{ $matkul->jadwal->waktu }}</td>
+                            @else
+                                <td>BELUM TERJADWAL</td>
+                                <td>BELUM TERJADWAL</td>
+                            @endif
+
                         </tr>
-                        <tr>
-                            <td>Kalkulus II</td>
-                            <td>IF-39-02</td>
-                            <td>B308B</td>
-                            <td>Jumat / 12.30 - 14.30</td>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
 

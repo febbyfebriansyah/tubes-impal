@@ -2,23 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Dosen;
+use App\Kelas;
 use App\MataKuliah;
 use Illuminate\Http\Request;
 
 class MataKuliahController extends Controller
 {
     //
+    public function getMatkul(){
+        $list_kelas = Kelas::all();
+        $list_dosen = Dosen::all();
+        $list_matkul = MataKuliah::all();
+
+        return view('admin.input-matkul', [
+            "list_kelas" => $list_kelas,
+            "list_dosen" => $list_dosen,
+            "list_matkul" => $list_matkul
+        ]);
+    }
+
 
     public function submitMatkul(Request $request){
-        $mata_kuliah = $request->input('mata-kuliah');
-        $kelas = $request->input('kelas');
-        $dosen = $request->input('dosen');
 
-        $obj_matkul = new MataKuliah();
-        $obj_matkul->kelas;
-        $obj_matkul->id_dosen = $dosen;
-        $obj_matkul->save();
+        $mataKuliah = new MataKuliah();
+        $mataKuliah->kelas_id = $request->input('kelas');
+        $mataKuliah->nama = $request->input('mata_kuliah');
+        $mataKuliah->kode = $request->input('kode');
+        $mataKuliah->sks = $request->input('sks');
+        $mataKuliah->dosen_id = $request->input('dosen');
 
-        return "Data Tersimpan";
+        $mataKuliah->save();
+
+        return redirect('admin/input-matkul');
     }
 }

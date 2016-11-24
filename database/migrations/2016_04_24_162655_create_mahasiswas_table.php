@@ -18,6 +18,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('nim')->nullable();
             $table->string('username')->unique();
             $table->string('name');
+            $table->string('no_telp')->nullable();
             $table->string('email')->nullable();
             $table->string('password');
             $table->integer('kelas_id')->unsigned()->nullable();

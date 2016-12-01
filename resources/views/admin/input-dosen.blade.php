@@ -62,4 +62,36 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Daftar Dosen</h4>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-hover">
+                        <thead>
+                        <th>Nama</th>
+                        <th>NIP</th>
+                        <th>Kode Dosen</th>
+                        <th></th>
+                        </thead>
+                        <tbody>
+                        @foreach($list_dosen as $dosen)
+                        <tr>
+                            <td>{{$dosen->name}}</td>
+                            <td>{{$dosen->nip}}</td>
+                            <td>{{$dosen->kode}}</td>
+                            <td>
+                            	<a class="btn btn-danger" href="{{ url('admin/delete-dsn') }}/{{ $dosen->id }}">Delete</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

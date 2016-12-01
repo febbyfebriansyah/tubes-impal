@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <link href="{{url('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
-    <link href="{{url('assets/css/animate.min.css')}}a" rel="stylesheet"/>
+    <link href="{{url('assets/css/animate.min.css')}}" rel="stylesheet"/>
     <link href="{{url('assets/css/light-bootstrap-dashboard.css')}}" rel="stylesheet"/>
 
 

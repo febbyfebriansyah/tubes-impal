@@ -22,8 +22,11 @@ class CreateNilaisTable extends Migration
             $table->integer('mahasiswa_id')->unsigned()->nullable();
             $table->foreign('mahasiswa_id')->references('id')->on('mahasiswa')->onDelete('cascade');
 
-            $table->string('indeks')->nullable();
-
+            $table->integer('uts')->nullable();
+            $table->integer('uas')->nullable();
+            $table->integer('quiz')->nullable();
+            $table->integer('tugas')->nullable();
+            
             $table->timestamps();
         });
     }

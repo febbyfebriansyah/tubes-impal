@@ -11,16 +11,16 @@ class DosenController extends Controller
         return view('dosen.dashboard');
     }
 
-    public function input_presensi(){
-        return view('dosen.input-presensi');
+    public function input_nilai(){
+        $list_matkul = Auth::guard('dosen')->user()->mataKuliah;
+//        return view('dosen.input-nilai');
+        return response()->json($list_matkul);
     }
 
-    public function input_nilai(){
-        return view('dosen.input-nilai');
-    }
 
     public function jadwal(){
-        return view('dosen.jadwal');
+        $list_matkul = Auth::guard('dosen')->user()->mataKuliah;
+        return view('dosen.jadwal', ["list_matkul" => $list_matkul]);
     }
 
     public function profile(){

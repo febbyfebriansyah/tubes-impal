@@ -43,7 +43,7 @@
                             <th>Hari / Jam</th>
                             </thead>
                         <tbody>
-                        @foreach(Auth::guard('dosen')->user()->mataKuliah as $matkul)
+                        @foreach($list_matkul as $matkul)
                         <tr>
                             <td>{{ $matkul->nama }}</td>
                             <td>{{ $matkul->kelas->kode }}</td>

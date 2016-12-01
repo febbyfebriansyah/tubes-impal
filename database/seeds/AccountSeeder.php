@@ -17,11 +17,45 @@ class AccountSeeder extends Seeder
     public function run()
     {
 
-        $mhsDede = Mahasiswa::create(array(
+        Mahasiswa::create(array(
             'username' => "mahasiswa",
             'name' => "Mahasiswa Dummy",
             'password' => Hash::make('qwerty123'),
         ));
+
+        Mahasiswa::create(array(
+            'username' => "dkiswanto",
+            'name' => "Dede Kiswanto",
+            'password' => Hash::make('qwerty123'),
+            'kelas_id' => 1, # IF-38-01 id
+            'nim' => "1301140171"
+        ));
+
+        Mahasiswa::create(array(
+            'username' => "febby",
+            'name' => "Febby Febriansyah",
+            'password' => Hash::make('qwerty123'),
+            'kelas_id' => 1, # IF-38-01 id
+            'nim' => "1301144231"
+        ));
+
+        Mahasiswa::create(array(
+            'username' => "dhiva",
+            'name' => "Dhiva Azhara",
+            'password' => Hash::make('qwerty123'),
+            'kelas_id' => 1, # IF-38-01 id
+            'nim' => "1301144001"
+
+        ));
+
+        Mahasiswa::create(array(
+            'username' => "prima",
+            'name' => "I Putu Prima Ananda",
+            'password' => Hash::make('qwerty123'),
+            'kelas_id' => 1, # IF-38-01 id
+            'nim' => "1301144111"
+        ));
+
 
         Dosen::create([
             'username' => "dosen",

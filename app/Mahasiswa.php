@@ -15,7 +15,7 @@ class Mahasiswa extends Authenticatable
     protected $table = 'mahasiswa';
     
     protected $fillable = [
-        'name', 'username', 'password', 'kelas_id'
+        'name', 'username', 'password', 'kelas_id', 'nim'
     ];
 
     private $id;

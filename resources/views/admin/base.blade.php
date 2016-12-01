@@ -56,33 +56,33 @@
                 <li class="@yield('activemahasiswa')">
                     <a href="{{ url('/admin/input-mahasiswa') }}">
                         <i class="fa fa-user-circle"></i>
-                        <p>Input Mahasiswa</p>
+                        <p>Manage Mahasiswa</p>
                     </a>
                 </li>
 
                 <li class="@yield('activedosen')">
                     <a href="{{ url('/admin/input-dosen') }}">
                         <i class="fa fa-user-circle-o"></i>
-                        <p>Input Dosen</p>
+                        <p>Manage Dosen</p>
                     </a>
                 </li>
 
                 <li class="@yield('activekelas')">
                     <a href="{{ url('/admin/input-kelas') }}">
                         <i class="fa fa-group"></i>
-                        <p>Input Kelas</p>
+                        <p>Manage Kelas</p>
                     </a>
                 </li>
                 <li class="@yield('activematkul')">
                     <a href="{{ url('/admin/input-matkul') }}">
                         <i class="fa fa-graduation-cap"></i>
-                        <p>Input Mata Kuliah</p>
+                        <p>Manage Mata Kuliah</p>
                     </a>
                 </li>
                 <li class="@yield('activejadwal')">
                     <a href="{{ url('/admin/input-jadwal') }}">
                         <i class="fa fa-calendar"></i>
-                        <p>Input Jadwal</p>
+                        <p>Manage Jadwal</p>
                     </a>
                 </li>
 

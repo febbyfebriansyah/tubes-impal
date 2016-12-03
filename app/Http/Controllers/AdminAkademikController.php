@@ -20,7 +20,8 @@ class AdminAkademikController extends Controller
     
     public function input_mahasiswa(){
         $list_kelas = Kelas::all();
-        return view('admin.input-mahasiswa', ["list_kelas" => $list_kelas]);
+        $list_mahasiswa = Mahasiswa::all();
+        return view('admin.input-mahasiswa', ["list_kelas" => $list_kelas, "list_mahasiswa" => $list_mahasiswa]);
     }
 
     public function postMahasiswa(Request $request){
@@ -46,8 +47,14 @@ class AdminAkademikController extends Controller
 
     }
 
+    public function deleteMahasiswa($id){
+        Mahasiswa::destroy($id);
+        return redirect('admin/input-mahasiswa');
+    }
+
     public function input_dosen(){
-        return view('admin.input-dosen');
+        $list_dosen = Dosen::all();
+        return view('admin.input-dosen', ["list_dosen" => $list_dosen]);
     }
 
     public function postDosen(Request $request){
@@ -65,6 +72,11 @@ class AdminAkademikController extends Controller
         $new_dosen->password = $password;
         $new_dosen->save();
 
+        return redirect('admin/input-dosen');
+    }
+
+    public function deleteDosen($id){
+        Dosen::destroy($id);
         return redirect('admin/input-dosen');
     }
 

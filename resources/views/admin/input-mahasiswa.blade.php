@@ -81,5 +81,47 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Daftar Mahasiswa</h4>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-hover">
+                        <thead>
+                        <th>Nama</th>
+                        <th>NIM</th>
+                        <th>Kelas</th>
+                        <th>Alamat</th>
+                        <th>No. Telp</th>
+                        <th></th>
+                        </thead>
+                        <tbody>
+                        @foreach($list_mahasiswa as $mahasiswa)
+                        <tr>
+                        	<td>{{$mahasiswa->name}}</td>
+                        	<td>{{$mahasiswa->nim}}</td>
+                        	@if ($mahasiswa->kelas != null)
+                        		<td>{{$mahasiswa->kelas->kode}}</td>
+                        	@else
+                        		<td>Tidak ada kelas</td>
+                        	@endif
+                        	<td>{{$mahasiswa->alamat}}</td>
+                        	<td>{{$mahasiswa->no_telp}}</td>
+	                    	<td>
+	                    		<a class="btn btn-danger" href="{{ url('admin/delete-mhs') }}/{{$mahasiswa->id}}">Delete</a>
+	                    	</td>
+
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
 	
 @endsection

@@ -29,8 +29,26 @@ class DosenController extends Controller
         $quiz = $request->input('quiz');
         $tugas = $request->input('tugas');
 
-        $nilai = Nilai::where('active', 1)->first();
+        $nilai = Nilai::where('matakuliah_id', $matakuliah_id)
+            ->where('mahasiswa_id', $mahasiswa_id)
+            ->first();
 
+        if ($nilai != null){
+            return response()->json($nilai);
+        } else {
+            $nilai = new Nilai();
+            $nilai->mahasiswa_id = $mahasiswa_id;
+            $nilai->matakuliah_id = $matakuliah_id;
+
+            $nilai->uts = $uts;
+            $nilai->uas = $uas;
+            $nilai->quiz = $quiz;
+            $nilai->tugas = $tugas;
+            $nilai->save();
+
+            return redirect('dosen/input-nilai');
+
+        }
 
 
     }

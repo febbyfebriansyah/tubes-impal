@@ -14,7 +14,7 @@
 @section('addjs')
     <script src="{{ url('bower_components/chained/jquery.chained.min.js') }}"></script>
     <script>
-        $("#fakultas").chained("#jurusan");
+        $("#jurusan").chained("#fakultas");
     </script>
 @endsection
 
@@ -42,26 +42,30 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Jurusan</label>
-                                    <select id="jurusan" name="jurusan" class="form-control" required>
+                                    <label>Fakultas</label>
+                                    <select id="fakultas" name="fakultas" class="form-control" required>
                                       <option value="">--</option>
                                       <option value="Informatika">Informatika</option>
                                       <option value="Teknik Elektro">Teknik Elektro</option>
+                                      <option value="Rekayasa Industri">Rekayasa Industri</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label >Fakultas</label>
-                                    <select id="fakultas" name="fakultas" class="form-control" required>
-                                      <option value="">--</option>
-                                      <option value="" class="Informatika">S1 Teknik Informatika</option>
-                                      <option value="" class="Informatika">S1 Ilmu Komputasi</option>
-                                      <option value="" class="Teknik Elektro">S1 Teknik Elektro</option>
-                                      <option value="" class="Teknik Elektro">S1 Teknik Telekomunikasi</option>
-                                      <option value="" class="Teknik Elektro">S1 Teknik Fisika</option>
-                                    </select>
+                                    <label >Jurusan</label>
+                                    <select id="jurusan" name="jurusan" class="form-control" required>
+                                        <option value="">--</option>
+                                        <option class="Informatika">S1 Teknik Informatika</option>
+                                        <option class="Informatika">S1 Ilmu Komputasi</option>
+                                        <option class="Teknik Elektro">S1 Teknik Elektro</option>
+                                        <option class="Teknik Elektro">S1 Teknik Telekomunikasi</option>
+                                        <option class="Teknik Elektro">S1 Teknik Fisika</option>
+                                        <option class="Teknik Elektro">S1 Sistem Komputer</option>
+                                        <option class="Rekayasa Industri">S1 Sistem Informasi</option>
+                                        <option class="Rekayasa Industri">S1 Teknik Industri</option>
 
+                                    </select>
                                 </div>
                             </div>
                         </div>

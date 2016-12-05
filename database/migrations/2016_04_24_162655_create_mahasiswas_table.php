@@ -15,7 +15,7 @@ class CreateMahasiswasTable extends Migration
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->increments('id');
 //            $table->integer('kelas_id');
-            $table->string('nim')->nullable();
+            $table->string('nim')->nullable()->unique();
             $table->string('username')->unique();
             $table->string('name');
             $table->string('no_telp')->nullable();

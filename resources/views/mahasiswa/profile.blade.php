@@ -110,9 +110,9 @@
                         </a>
                         <br>
                     </div>
-                    <p class="description text-center">Teknik Informatika (DUMMY)<br>
-                        Fakultas Informatika (DUMMY)<br>
-                        2014 (DUMMY)
+                    <p class="description text-center">{{$mhs->kelas->jurusan}}
+                    </p>
+                    <p class="description text-center">{{$mhs->kelas->fakultas}}
                     </p>
                 </div>
                 <hr>

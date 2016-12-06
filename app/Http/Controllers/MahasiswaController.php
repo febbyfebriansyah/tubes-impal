@@ -48,7 +48,11 @@ class MahasiswaController extends Controller
         $mhs->name = $request['name'];
         $mhs->alamat = $request['alamat'];
         $mhs->no_telp = $request['no_telp'];
-        $mhs->password = Hash::make($request['password']);
+
+        if($request['password'] != ''){
+                $mhs->password = Hash::make($request['password']);
+        }
+
         $mhs->save();
 
         return redirect('/mahasiswa/profile');

@@ -19,7 +19,7 @@ class Jadwal extends Model
     }
 
     public function getId(){
-    	return $this->$id;
+    	return $this->id;
     }
 
     public function getIdMatkul(){
@@ -31,7 +31,7 @@ class Jadwal extends Model
     }
 
     public function getRuang(){
-    	return $this->$ruang;
+    	return $this->ruang;
     }
 
     public function setWaktu($waktu){
@@ -39,7 +39,7 @@ class Jadwal extends Model
     }
 
     public function getWaktu(){
-    	return $this->$waktu;
+    	return $this->waktu;
     }
 
 // *** Eloquent Relationship *** //

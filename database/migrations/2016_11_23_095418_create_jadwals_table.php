@@ -23,7 +23,6 @@ class CreateJadwalsTable extends Migration
             $table->string('waktu')->nullable();
             $table->string('ruangan')->nullable();
 
-
             $table->timestamps();
         });
 

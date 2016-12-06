@@ -28,8 +28,6 @@ class MahasiswaController extends Controller
     public function nilai(){
         $listnilai = Auth::guard('mahasiswa')->user()->nilai;
         return view('mahasiswa.nilai', ['list_nilai' => $listnilai]);
-//////        return response()->json($mhs->nilai);
-//        return view('mahasiswa.nilai');
     }
 
     public function presensi(){

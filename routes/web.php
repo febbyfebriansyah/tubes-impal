@@ -51,10 +51,17 @@ Route::group(['middleware' => 'auth.admin'], function () {
     Route::get('admin/input-mahasiswa', 'AdminAkademikController@input_mahasiswa');
     Route::post('admin/input-mahasiswa', 'AdminAkademikController@postMahasiswa');
     Route::get('admin/delete-mhs/{id}', 'AdminAkademikController@deleteMahasiswa');
+    Route::get('admin/edit-mhs/{id}', 'AdminAkademikController@editMahasiswa');
+    Route::post('admin/edit-mhs/{id}', 'AdminAkademikController@submitEditMahasiswa');
     Route::get('admin/input-dosen', 'AdminAkademikController@input_dosen');
     Route::post('admin/input-dosen', 'AdminAkademikController@postDosen');
     Route::get('admin/delete-dsn/{id}', 'AdminAkademikController@deleteDosen');
+    Route::get('admin/edit-dsn/{id}', 'AdminAkademikController@editDosen');
+    Route::post('admin/edit-dsn/{id}', 'AdminAkademikController@submitEditDosen');
     Route::get('/admin/profile', 'AdminAkademikController@profile');
+    Route::get('admin/delete-kelas/{id}', 'KelasController@deleteKelas');
+    Route::get('admin/delete-jadwal/{id}', 'JadwalController@deleteJadwal');
+    Route::get('admin/delete-matkul/{id}', 'MataKuliahController@deleteMatkul');
 });
 
 // Dosen Router
@@ -72,4 +79,5 @@ Route::group(['middleware' => 'auth.dosen'], function () {
 
     Route::get('/dosen/jadwal', 'DosenController@jadwal');
     Route::get('/dosen/profile', 'DosenController@profile');
+    Route::post('/dosen/profile', 'DosenController@postProfile');
 });

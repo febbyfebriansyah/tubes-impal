@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Dosen;
 use App\Nilai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class DosenController extends Controller
 {
@@ -69,5 +71,18 @@ class DosenController extends Controller
     public function profile(){
         $user = Auth::guard('dosen')->user();
         return view('dosen.profile',  ['user' => $user]);
+    }
+
+    public function postProfile(Request $request) {
+        $user = Dosen::find(intval($request['id']));
+        $user->nip = $request['nip'];
+        $user->email = $request['email'];
+        $user->name = $request['name'];
+
+        if($request['password'] != ''){
+            $user->password = Hash::make($request['password']);
+        }
+        $user->save();
+        return redirect('/dosen/profile');
     }
 }

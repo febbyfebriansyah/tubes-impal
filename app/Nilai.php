@@ -36,10 +36,6 @@ class Nilai extends Model
         $this->indeks = $indeks;
     }
 
-    public function getIndeks(){
-        return $this->indeks;
-    }
-
     public function getIdMhs(){
     	return $this->idMhs;
     }
@@ -83,7 +79,7 @@ class Nilai extends Model
 
 // *** Eloquent Relationship *** //
     public function mataKuliah(){
-        return $this->belongsTo('App\MataKuliah');
+        return $this->belongsTo('App\MataKuliah', 'matakuliah_id');
     }
 
     public function mahasiswa(){

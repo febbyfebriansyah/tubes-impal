@@ -98,7 +98,7 @@
                                     <option value="Senin">Senin</option>
                                     <option value="Selasa">Selasa</option>
                                     <option value="Rabu">Rabu</option>
-                                    <option value="Kamis">Senin</option>
+                                    <option value="Kamis">Kamis</option>
                                     <option value="Jum'at">Jum'at</option>
                                     <option value="Sabtu">Sabtu</option>
                                 </select>
@@ -161,6 +161,9 @@
                                 <td>{{ $jadwal->mataKuliah->dosen->name }}</td>
                                 <td>{{ $jadwal->hari }} {{ $jadwal->waktu }}</td>
                                 <td>{{ $jadwal->ruangan }}</td>
+                                <td>
+                                    <a class="btn btn-danger" href="{{ url('admin/delete-jadwal') }}/{{$jadwal->id}}">Delete</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

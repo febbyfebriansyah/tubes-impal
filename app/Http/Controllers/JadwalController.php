@@ -20,6 +20,12 @@ class JadwalController extends Controller
         ]);
     }
 
+    //untuk di dashboard admin
+    public function deleteJadwal($id) {
+        Jadwal::destroy($id);
+        return redirect('admin/input-jadwal');
+    }
+
     public function submitJadwal(Request $request){
 //        return Response::json($request);
 
@@ -32,6 +38,5 @@ class JadwalController extends Controller
 
         return redirect('admin/input-jadwal');
     }
-
-
+        
 }

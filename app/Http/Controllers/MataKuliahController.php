@@ -41,4 +41,23 @@ class MataKuliahController extends Controller
 
         return redirect('admin/input-matkul');
     }
+
+    public function editMatkul($id){
+        $matkul = MataKuliah::find($id);
+        $list_kelas = Kelas::all();
+        $list_dosen = Dosen::all();
+        return view('admin.edit-matakuliah', ["matkul" => $matkul, "list_kelas" => $list_kelas, "list_dosen" => $list_dosen]);
+    }
+
+    public function submitEditMatkul($id, Request $request){
+        $matkul = MataKuliah::find($id);
+        $matkul->kelas_id = $request->input('kelas');
+        $matkul->nama = $request->input('mata_kuliah');
+        $matkul->sks = $request->input('sks');
+        $matkul->kode = $request->input('kode');
+        $matkul->dosen_id = $request->input('dosen');
+        $matkul->save();
+
+        return redirect('admin/input-matkul');
+    }
 }

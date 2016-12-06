@@ -101,7 +101,8 @@
                                 <td>{{ $matkul->nama }}</td>
                                 <td>{{ $matkul->dosen->name }}</td>
                                 <td>
-                                    <a class="btn = btn-danger" href="{{ url('admin/delete-matkul') }}/{{$matkul->id}}">Delete</a>
+                                    <a class="btn btn-primary" href="{{ url('admin/edit-matkul') }}/{{$matkul->id}}">Edit</a>
+                                    <a class="btn btn-danger" href="{{ url('admin/delete-matkul') }}/{{$matkul->id}}">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

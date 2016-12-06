@@ -23,24 +23,16 @@ class AuthController extends Controller
 
         $attempt_login = ['username' => $request['username'], 'password' => $request['password']];
 
-        if ($request['role'] == 'mahasiswa') {
-            // Authentication passed...
-            $login = Auth::guard('mahasiswa')->attempt($attempt_login);
-
-        } elseif ($request['role'] == 'dosen') {
-            $login = Auth::guard('dosen')->attempt($attempt_login);
-
-        } elseif ($request['role'] == 'admin') {
-            $login = Auth::guard('admin_akademik')->attempt($attempt_login);
-
+        if(Auth::guard('admin_akademik')->attempt($attempt_login)){
+            return redirect('/admin');
+        } else if(Auth::guard('dosen')->attempt($attempt_login)) {
+            return redirect('/dosen');
+        } else if(Auth::guard('mahasiswa')->attempt($attempt_login)) {
+            return redirect('/mahasiswa');
         } else {
-            return "Error Login";
+            return "<script> alert('login gagal, username atau password salah!!'); document.location.href='/'</script>";
         }
 
-        if($login)
-            return redirect()->intended('/');
-        else
-            return "<script> alert('login ". $request['role'] ." gagal, username or password salah!!'); document.location.href='/'</script>";
     }
 
     public function getLogout(){

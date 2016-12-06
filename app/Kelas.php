@@ -14,16 +14,13 @@ class Kelas extends Model
     private $jurusan;
     private $fakultas;
 
-    public function kelas(){
-        $jadwal = new app\Jadwal();
-    }
 
     public function setId($id){
     	$this->id = $id;
     }
 
     public function getId(){
-    	return $this->$id;
+    	return $this->id;
     }
 
     public function setNamaKelas($nama_kelas){
@@ -31,7 +28,7 @@ class Kelas extends Model
     }
 
     public function getNamaKelas(){
-    	return $this->$nama_kelas;
+    	return $this->nama_kelas;
     }
 
     public function setJurusan($jurusan){
@@ -39,7 +36,7 @@ class Kelas extends Model
     }
 
     public function getJurusan(){
-    	return $this->$jurusan;
+    	return $this->jurusan;
     }
 
     public function setFakultas($fakultas){
@@ -47,15 +44,19 @@ class Kelas extends Model
     }
 
     public function getFakultas(){
-    	return $this->$fakultas;
+    	return $this->fakultas;
     }
 
 // *** Eloquent Relationship *** //
     public function mahasiswa(){
-        return $this->hasMany('app\Mahasiswa');
+        return $this->hasMany('App\Mahasiswa');
     }
 
     public function jadwal(){
-        return $this->hasMany('app\Jadwal');
+        return $this->hasMany('App\Jadwal');
+    }
+
+    public function mataKuliah(){
+        return $this->hasMany('App\MataKuliah');
     }
 }

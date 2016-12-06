@@ -75,18 +75,18 @@
                                 </div>
                             </div>
 
-                            <div class="form-group" >
-                                <label class="col-md-4 control-label">Role</label>
+                            {{--<div class="form-group" >--}}
+                                {{--<label class="col-md-4 control-label">Role</label>--}}
 
-                                <div class="col-md-6">
-                                    <select name="role" class="form-control" required>
-                                        <option selected="selected" disabled>Please select role</option>
-                                        <option value="mahasiswa">Mahasiswa</option>
-                                        <option value="dosen">Dosen</option>
-                                        <option value="admin">Administrasi Akademik</option>
-                                    </select>
-                                </div>
-                            </div>
+                                {{--<div class="col-md-6">--}}
+                                    {{--<select name="role" class="form-control" required>--}}
+                                        {{--<option selected="selected" disabled>Please select role</option>--}}
+                                        {{--<option value="mahasiswa">Mahasiswa</option>--}}
+                                        {{--<option value="dosen">Dosen</option>--}}
+                                        {{--<option value="admin">Administrasi Akademik</option>--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">

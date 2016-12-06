@@ -41,8 +41,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>NIP</label>
-                                    <input name="nip" type="text" class="form-control" value="{{ $mhs->nim }}">
+                                    <label>NIM</label>
+                                    <input name="nim" type="text" class="form-control" value="{{ $mhs->nim }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -72,12 +72,18 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-xs-6">
                                 <div class="form-group">
                                     <label>Phone Number</label>
-                                    <input name="telp" type="number" class="form-control" value="{{ $mhs->telp }}" >
+                                    <input name="no_telp" type="number" class="form-control" value="{{ $mhs->no_telp }}" >
                                 </div>
                             </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input name="password" type="password" class="form-control" placeholder="Optional" >
+                                </div>
+                        </div>
 
                         </div>
 

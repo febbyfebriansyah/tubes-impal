@@ -21,7 +21,7 @@ class Nilai extends Model
     }
 
     public function getId(){
-    	return $this->$id;
+    	return $this->id;
     }
 
     public function setNilai($nilai){
@@ -29,19 +29,15 @@ class Nilai extends Model
     }
 
     public function getNilai(){
-    	return $this->$nilai;
+    	return $this->nilai;
     }
 
     public function setIndeks($indeks){
         $this->indeks = $indeks;
     }
 
-    public function getIndeks(){
-        return $this->$indeks;
-    }
-
     public function getIdMhs(){
-    	return $this->$idMhs;
+    	return $this->idMhs;
     }
 
     public function getIdMatkul(){
@@ -49,7 +45,7 @@ class Nilai extends Model
     }
 
     public function addNilai(Request $request){
-    	$nilai = new app\Nilai();
+    	$nilai = new Nilai();
         $nilai->setId($request->id);
         $nilai->setNilai($request->nilai);
         $nilai->save();
@@ -59,16 +55,35 @@ class Nilai extends Model
     	$this->nilai = $nilai;
     }
 
-    public function deleteNilai(app\Nilai $nilai){
+    public function deleteNilai(Nilai $nilai){
     	$nilai->delete();
     }
+
+    public function getIndex(){
+        $nilai_akhir = $this->uts * 0.35 + $this->uas * 0.35 + $this->quiz * 0.20 + $this->tugas * 0.1;
+        if($nilai_akhir >= 80)
+            return "A";
+        else if ($nilai_akhir >= 75)
+            return "AB";
+        else if ($nilai_akhir >= 60)
+            return "B";
+        else if ($nilai_akhir >= 50)
+            return "BC";
+        else if ($nilai_akhir >= 45)
+            return "C";
+        else if ($nilai_akhir >= 40)
+            return "D";
+        else
+            return "E";
+    }
+
 // *** Eloquent Relationship *** //
     public function mataKuliah(){
-        return $this->belongsTo('app\MataKuliah');
+        return $this->belongsTo('App\MataKuliah', 'matakuliah_id');
     }
 
     public function mahasiswa(){
-        return $this->belongsTo('app\Mahasiswa');
+        return $this->belongsTo('App\Mahasiswa');
     }
 
 }

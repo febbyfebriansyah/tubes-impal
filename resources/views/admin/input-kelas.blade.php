@@ -12,7 +12,10 @@
     @endsection
 
 @section('addjs')
-
+    <script src="{{ url('bower_components/chained/jquery.chained.min.js') }}"></script>
+    <script>
+        $("#jurusan").chained("#fakultas");
+    </script>
 @endsection
 
 @section('nav_position')
@@ -28,25 +31,41 @@
                     <h4 class="title">Input Kelas</h4>
                 </div>
                 <div class="content">
-                    <form method="post" action="">
+                    <form method="post" action="{{url('admin/input-kelas')}}">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Nama Kelas</label>
+                                    <label>Kode Kelas</label>
                                     {{ csrf_field() }}
                                     <input name="kelas" type="text" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Jurusan</label>
-                                    <input name="jurusan" type="text" class="form-control" required>
+                                    <label>Fakultas</label>
+                                    <select id="fakultas" name="fakultas" class="form-control" required>
+                                      <option value="">--</option>
+                                      <option value="Informatika">Informatika</option>
+                                      <option value="Teknik Elektro">Teknik Elektro</option>
+                                      <option value="Rekayasa Industri">Rekayasa Industri</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label >Fakultas</label>
-                                    <input name="fakultas" type="text" class="form-control" required>
+                                    <label >Jurusan</label>
+                                    <select id="jurusan" name="jurusan" class="form-control" required>
+                                        <option value="">--</option>
+                                        <option class="Informatika">S1 Teknik Informatika</option>
+                                        <option class="Informatika">S1 Ilmu Komputasi</option>
+                                        <option class="Teknik Elektro">S1 Teknik Elektro</option>
+                                        <option class="Teknik Elektro">S1 Teknik Telekomunikasi</option>
+                                        <option class="Teknik Elektro">S1 Teknik Fisika</option>
+                                        <option class="Teknik Elektro">S1 Sistem Komputer</option>
+                                        <option class="Rekayasa Industri">S1 Sistem Informasi</option>
+                                        <option class="Rekayasa Industri">S1 Teknik Industri</option>
+
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -73,16 +92,16 @@
                         <th>Fakultas</th>
                         </thead>
                         <tbody>
+                        @foreach($list_kelas as $kelas)
                         <tr>
-                            <td>IF-38-01</td>
-                            <td>Teknik Informatika</td>
-                            <td>Fakultas Informatika</td>
+                            <td>{{$kelas->kode}}</td>
+                            <td>{{$kelas->jurusan}}</td>
+                            <td>{{$kelas->fakultas}}</td>
+                            <td>
+                                <a class="btn btn-danger" href="{{ url('admin/delete-kelas') }}/{{$kelas->id}}">Delete</a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>IF-38-02</td>
-                            <td>Teknik Informatika</td>
-                            <td>Fakultas Informatika</td>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
 

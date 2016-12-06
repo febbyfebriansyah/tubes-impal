@@ -14,6 +14,15 @@ class CreatePresensisTable extends Migration
     {
         Schema::create('presensi', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->integer('matakuliah_id')->unsigned()->nullable();
+            $table->foreign('matakuliah_id')->references('id')->on('matakuliah')->onDelete('cascade');
+
+            $table->integer('mahasiswa_id')->unsigned()->nullable();
+            $table->foreign('mahasiswa_id')->references('id')->on('mahasiswa')->onDelete('cascade');
+
+            $table->dateTime('tanggal')->nullable();
+            
             $table->timestamps();
         });
     }

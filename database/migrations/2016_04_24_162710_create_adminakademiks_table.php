@@ -14,7 +14,7 @@ class CreateAdminakademiksTable extends Migration
     {
         Schema::create('admin_akademik', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nip')->nullable();
+            $table->string('nip')->nullable()->unique();
             $table->string('username')->unique();
             $table->string('name');
             $table->string('email')->nullable();

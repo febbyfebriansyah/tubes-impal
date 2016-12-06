@@ -161,6 +161,9 @@
                                 <td>{{ $jadwal->mataKuliah->dosen->name }}</td>
                                 <td>{{ $jadwal->hari }} {{ $jadwal->waktu }}</td>
                                 <td>{{ $jadwal->ruangan }}</td>
+                                <td>
+                                    <a class="btn btn-danger" href="{{ url('admin/delete-jadwal') }}/{{$jadwal->id}}">Delete</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

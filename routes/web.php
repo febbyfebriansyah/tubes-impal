@@ -71,4 +71,5 @@ Route::group(['middleware' => 'auth.dosen'], function () {
     Route::get('/dosen/input-presensi', 'PresensiController@input_presensi');
     Route::get('/dosen/jadwal', 'DosenController@jadwal');
     Route::get('/dosen/profile', 'DosenController@profile');
+    Route::post('/dosen/profile', 'DosenController@postProfile');
 });

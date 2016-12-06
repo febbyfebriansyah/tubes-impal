@@ -37,7 +37,7 @@
                 <div class="content">
                     <form method="post" action="">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Username (disabled)</label>
                                     {{ csrf_field() }}
@@ -46,16 +46,10 @@
                                     <input name="username" type="text" class="form-control" value="{{ $user->username }}" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>NIM</label>
-                                    <input name="nim" type="text" class="form-control" value="{{ $user->nip }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input name="email" type="email" class="form-control" value="{{ $user->email }}">
+                                    <label>Password</label>
+                                    <input name="password" type="password" class="form-control" placeholder="Optional">
                                 </div>
                             </div>
                         </div>
@@ -70,23 +64,21 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input name="alamat" type="text" class="form-control" value="{{ $user->alamat }}">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Phone Number</label>
-                                    <input name="telp" type="number" class="form-control" value="{{ $user->telp }}" >
+                                    <label>NIP (disabled)</label>
+                                    {{ csrf_field() }}
+                                    <input name="nip" type="text" class="form-control" value="{{ $user->nip }}" disabled>
                                 </div>
                             </div>
-
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input name="email" type="email" class="form-control" value="{{ $user->email }}">
+                                </div>
+                            </div>
                         </div>
+
 
                         <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
                         <div class="clearfix"></div>
@@ -106,7 +98,7 @@
                             <img class="avatar border-gray" src="{{url('assets/img/default-avatar.png')}}" alt="..."/>
 
                             <h4 class="title">{{$user->name}}<br />
-                                <small>{{$user->nim}}</small>
+                                <small>{{$user->nip}}</small>
                             </h4>
                         </a>
                         <br>

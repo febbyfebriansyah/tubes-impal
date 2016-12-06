@@ -41,8 +41,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>NIP</label>
-                                    <input name="nip" type="text" class="form-control" value="{{ $mhs->nim }}">
+                                    <label>NIM</label>
+                                    <input name="nim" type="text" class="form-control" value="{{ $mhs->nim }}">
                                 </div>
                             </div>
                             <div class="col-md-4">

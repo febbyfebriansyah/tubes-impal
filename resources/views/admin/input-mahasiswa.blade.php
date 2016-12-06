@@ -110,7 +110,8 @@
                         	@endif
                         	<td>{{$mahasiswa->alamat}}</td>
                         	<td>{{$mahasiswa->no_telp}}</td>
-	                    	<td>
+                        	<td>
+	                    		<a class="btn btn-primary" href="{{ url('admin/edit-mhs') }}/{{$mahasiswa->id}}">Edit</a>
 	                    		<a class="btn btn-danger" href="{{ url('admin/delete-mhs') }}/{{$mahasiswa->id}}">Delete</a>
 	                    	</td>
 

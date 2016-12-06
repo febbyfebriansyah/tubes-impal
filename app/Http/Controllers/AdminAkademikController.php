@@ -47,6 +47,26 @@ class AdminAkademikController extends Controller
 
     }
 
+    public function editMahasiswa($id){
+        $list_kelas = Kelas::all();
+        $mahasiswa =  Mahasiswa::find($id);
+        return view('admin.edit-mahasiswa', ["mahasiswa" => $mahasiswa, "list_kelas" => $list_kelas]);
+    }
+
+    public function submitEditMahasiswa($id, Request $request){
+        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa->name = $request->input('nama');
+        $mahasiswa->nim = $request->input('nim');
+        $mahasiswa->kelas_id =  $request->input('kelas');
+        $mahasiswa->alamat = $request->input('alamat');
+        $mahasiswa->no_telp = $request->input('telp');
+        $mahasiswa->username = $request->input('username');
+        $mahasiswa->save();
+
+        return redirect('admin/input-mahasiswa');
+    }
+
+
     public function deleteMahasiswa($id){
         Mahasiswa::destroy($id);
         return redirect('admin/input-mahasiswa');

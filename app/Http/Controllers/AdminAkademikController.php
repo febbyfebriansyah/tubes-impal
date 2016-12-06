@@ -47,6 +47,26 @@ class AdminAkademikController extends Controller
 
     }
 
+    public function editMahasiswa($id){
+        $list_kelas = Kelas::all();
+        $mahasiswa =  Mahasiswa::find($id);
+        return view('admin.edit-mahasiswa', ["mahasiswa" => $mahasiswa, "list_kelas" => $list_kelas]);
+    }
+
+    public function submitEditMahasiswa($id, Request $request){
+        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa->name = $request->input('nama');
+        $mahasiswa->nim = $request->input('nim');
+        $mahasiswa->kelas_id =  $request->input('kelas');
+        $mahasiswa->alamat = $request->input('alamat');
+        $mahasiswa->no_telp = $request->input('telp');
+        $mahasiswa->username = $request->input('username');
+        $mahasiswa->save();
+
+        return redirect('admin/input-mahasiswa');
+    }
+
+
     public function deleteMahasiswa($id){
         Mahasiswa::destroy($id);
         return redirect('admin/input-mahasiswa');
@@ -69,7 +89,7 @@ class AdminAkademikController extends Controller
         $new_dosen->name = $nama;
         $new_dosen->kode = $kode;
         $new_dosen->username = $username;
-        $new_dosen->password = $password;
+        $new_dosen->password = Hash::make($password);
         $new_dosen->save();
 
         return redirect('admin/input-dosen');
@@ -77,6 +97,22 @@ class AdminAkademikController extends Controller
 
     public function deleteDosen($id){
         Dosen::destroy($id);
+        return redirect('admin/input-dosen');
+    }
+
+    public function editDosen($id){
+        $dosen = Dosen::find($id);
+        return view('admin.edit-dosen', ["dosen" => $dosen]);
+    }
+
+    public function submitEditDosen($id, Request $request){
+        $dosen = Dosen::find($id);
+        $dosen->name = $request->input('nama');
+        $dosen->nip = $request->input('nip');
+        $dosen->username = $request->input('username');
+        $dosen->kode = $request->input('kode');
+        $dosen->save();
+
         return redirect('admin/input-dosen');
     }
 

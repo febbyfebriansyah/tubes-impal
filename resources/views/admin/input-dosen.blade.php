@@ -84,6 +84,7 @@
                             <td>{{$dosen->nip}}</td>
                             <td>{{$dosen->kode}}</td>
                             <td>
+                            	<a class="btn btn-primary" href="{{ url('admin/edit-dsn') }}/{{ $dosen->id }}">Edit</a>
                             	<a class="btn btn-danger" href="{{ url('admin/delete-dsn') }}/{{ $dosen->id }}">Delete</a>
                             </td>
                         </tr>

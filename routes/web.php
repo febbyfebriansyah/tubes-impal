@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth.admin'], function () {
     Route::get('/admin/profile', 'AdminAkademikController@profile');
     Route::get('admin/delete-kelas/{id}', 'KelasController@deleteKelas');
     Route::get('admin/delete-jadwal/{id}', 'JadwalController@deleteJadwal');
+    Route::get('admin/delete-matkul/{id}', 'MataKuliahController@deleteMatkul');
 });
 
 // Dosen Router

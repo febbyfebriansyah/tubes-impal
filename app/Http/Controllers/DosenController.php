@@ -78,9 +78,11 @@ class DosenController extends Controller
         $user->nip = $request['nip'];
         $user->email = $request['email'];
         $user->name = $request['name'];
-        $user->password = Hash::make($request['password']);
-        $user->save();
 
+        if($request['password'] != ''){
+            $user->password = Hash::make($request['password']);
+        }
+        $user->save();
         return redirect('/dosen/profile');
     }
 }

@@ -12,6 +12,7 @@
     <!-- Styles -->
     <link href="{{url('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
     <link href="{{ url('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href='{{ url('bower_components/roboto-fontface/css/roboto/roboto-fontface.css') }}' rel='stylesheet'>
 
     <style>
         .navbar , .panel-heading {

@@ -114,5 +114,42 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Daftar Nilai</h4>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-hover">
+                        <thead>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Mata Kuliah</th>
+                        <th>Indeks</th>
+                        <th>Action</th>
+                        </thead>
+                        <tbody>
+                            @foreach($list_matkul as $matkul)
+                                @foreach($matkul->nilai as $nilai)
+
+                                    <tr>
+                                    <td>{{ $nilai->mahasiswa->name }}</td>
+                                    <td>{{ $matkul->kelas->kode }}</td>
+                                    <td>{{ $matkul->kode }}</td>
+                                    <td>{{ $nilai->getIndex() }}</td>
+                                    <td>
+                                        <a class="btn btn-danger" href="{{ url('dosen/input-nilai/delete') }}/{{ $nilai->id }}">Delete</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 @endsection

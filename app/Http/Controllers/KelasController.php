@@ -26,4 +26,10 @@ class KelasController extends Controller
         $list_kelas = Kelas::all();
         return view('admin.input-kelas', ["list_kelas" => $list_kelas]);
     }
+
+    //untuk di dashboard admin
+    public function deleteKelas($id){
+        Kelas::destroy($id);
+        return redirect('admin/input-kelas');
+    }
 }

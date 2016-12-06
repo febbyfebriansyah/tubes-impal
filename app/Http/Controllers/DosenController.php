@@ -34,7 +34,10 @@ class DosenController extends Controller
             ->first();
 
         if ($nilai != null){
-            return response()->json($nilai);
+            // nilai duplikat
+            // return response()->json($nilai);
+
+            return "Nilai Mahasiswa Tersebut Sudah Diinput";
         } else {
             $nilai = new Nilai();
             $nilai->mahasiswa_id = $mahasiswa_id;
@@ -53,6 +56,10 @@ class DosenController extends Controller
 
     }
 
+    public function deleteNilai($id){
+        Nilai::destroy($id);
+        return redirect('dosen/input-nilai');
+    }
 
     public function jadwal(){
         $list_matkul = Auth::guard('dosen')->user()->mataKuliah;

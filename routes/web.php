@@ -59,6 +59,9 @@ Route::group(['middleware' => 'auth.admin'], function () {
     Route::post('admin/input-dosen', 'AdminAkademikController@postDosen');
     Route::get('admin/delete-dsn/{id}', 'AdminAkademikController@deleteDosen');
     Route::get('/admin/profile', 'AdminAkademikController@profile');
+    Route::get('admin/delete-kelas/{id}', 'KelasController@deleteKelas');
+    Route::get('admin/delete-jadwal/{id}', 'JadwalController@deleteJadwal');
+    Route::get('admin/delete-matkul/{id}', 'MataKuliahController@deleteMatkul');
 });
 
 // Dosen Router
@@ -66,6 +69,9 @@ Route::group(['middleware' => 'auth.dosen'], function () {
     Route::get('/dosen', 'DosenController@home');
     Route::get('/dosen/input-nilai', 'DosenController@input_nilai');
     Route::post('/dosen/input-nilai', 'DosenController@postNilai');
+    
+    Route::get('/dosen/input-nilai/delete/{id}', 'DosenController@deleteNilai');
+    
     Route::get('/dosen/input-presensi', 'PresensiController@input_presensi');
     Route::get('/dosen/jadwal', 'DosenController@jadwal');
     Route::get('/dosen/profile', 'DosenController@profile');

@@ -97,6 +97,9 @@
                             <td>{{$kelas->kode}}</td>
                             <td>{{$kelas->jurusan}}</td>
                             <td>{{$kelas->fakultas}}</td>
+                            <td>
+                                <a class="btn btn-danger" href="{{ url('admin/delete-kelas') }}/{{$kelas->id}}">Delete</a>
+                            </td>
                         </tr>
                         @endforeach
                         </tbody>

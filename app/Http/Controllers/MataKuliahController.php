@@ -22,6 +22,11 @@ class MataKuliahController extends Controller
         ]);
     }
 
+    //untuk di dashboard admin
+    public function deleteMatkul($id) {
+        MataKuliah::destroy($id);
+        return redirect('admin/input-matkul');
+    }
 
     public function submitMatkul(Request $request){
 

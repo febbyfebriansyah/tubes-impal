@@ -69,7 +69,7 @@ class MataKuliah extends Model
     }
 
     public function nilai(){
-        return $this->hasMany('App\Nilai');
+        return $this->hasMany('App\Nilai', 'matakuliah_id');
     }
 
     // tested kinto-d

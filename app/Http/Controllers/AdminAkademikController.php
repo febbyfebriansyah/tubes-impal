@@ -61,6 +61,9 @@ class AdminAkademikController extends Controller
         $mahasiswa->alamat = $request->input('alamat');
         $mahasiswa->no_telp = $request->input('telp');
         $mahasiswa->username = $request->input('username');
+        if($request['password'] != ''){
+            $mahasiswa->password = Hash::make($request->input('password'));
+        }
         $mahasiswa->save();
 
         return redirect('admin/input-mahasiswa');
@@ -111,6 +114,9 @@ class AdminAkademikController extends Controller
         $dosen->nip = $request->input('nip');
         $dosen->username = $request->input('username');
         $dosen->kode = $request->input('kode');
+        if($request['password'] != ''){
+            $dosen->password = Hash::make($request->input('password'));
+        }
         $dosen->save();
 
         return redirect('admin/input-dosen');

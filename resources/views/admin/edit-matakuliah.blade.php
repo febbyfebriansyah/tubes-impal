@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                     <label>Dosen</label>
                                     <select class="form-control" required name="dosen">
-                                        <option selected="selected" value="{{ $matkul->dosen_id }}" disabled>{{ $matkul->dosen->name }} - {{ $matkul->dosen->kode }}</option>
+                                        <option selected="selected" value="{{ $matkul->dosen_id }}">{{ $matkul->dosen->name }} - {{ $matkul->dosen->kode }}</option>
                                         @foreach($list_dosen as $dosen)
                                             <option value="{{ $dosen->id }}">{{ $dosen->name }} - {{ $dosen->kode }}</option>
                                         @endforeach

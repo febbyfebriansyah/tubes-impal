@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class MahasiswaController extends Controller
 {
@@ -25,7 +26,10 @@ class MahasiswaController extends Controller
     }
 
     public function nilai(){
-        return view('mahasiswa.nilai');
+        $listnilai = Auth::guard('mahasiswa')->user()->nilai;
+        return view('mahasiswa.nilai', ['list_nilai' => $listnilai]);
+//////        return response()->json($mhs->nilai);
+//        return view('mahasiswa.nilai');
     }
 
     public function presensi(){
@@ -43,6 +47,12 @@ class MahasiswaController extends Controller
         $mhs->email = $request['email'];
         $mhs->name = $request['name'];
         $mhs->alamat = $request['alamat'];
+        $mhs->no_telp = $request['no_telp'];
+
+        if($request['password'] != ''){
+                $mhs->password = Hash::make($request['password']);
+        }
+
         $mhs->save();
 
         return redirect('/mahasiswa/profile');

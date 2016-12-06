@@ -34,24 +34,24 @@
                         <th>Dosen</th>
                         <th>SKS</th>
                         <th>Indeks</th>
-                        <th>Detail</th>
+                        <th>UTS</th>
+                        <th>UAS</th>
+                        <th>KUIS</th>
+                        <th>Tugas</th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Matematika Diskrit</td>
-                            <td>Bambang Ari Wahyudi</td>
-                            <td>3</td>
-                            <td>A</td>
-                            <td><a class="btn btn-sm btn-primary">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td>Kalkulus II</td>
-                            <td>Azikin</td>
-                            <td>4</td>
-                            <td>C</td>
-                            <td><a class="btn btn-sm btn-primary">Detail</a></td>
-
-                        </tr>
+                         @foreach($list_nilai as $nilai)
+                            <tr>
+                                <td>{{$nilai->mataKuliah->nama}} ({{$nilai->mataKuliah->kode}})</td>
+                                <td>{{$nilai->mataKuliah->dosen->name}} ({{$nilai->mataKuliah->dosen->kode}})</td>
+                                <td>{{$nilai->mataKuliah->sks}}</td>
+                                <td>{{$nilai->getIndex()}}</td>
+                                <td>{{$nilai->uts}}</td>
+                                <td>{{$nilai->uas}}</td>
+                                <td>{{$nilai->quiz}}</td>
+                                <td>{{$nilai->tugas}}</td>
+                            </tr>
+                         @endforeach
                         </tbody>
                     </table>
 

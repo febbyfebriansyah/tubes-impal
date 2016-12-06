@@ -72,12 +72,18 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-xs-6">
                                 <div class="form-group">
                                     <label>Phone Number</label>
-                                    <input name="telp" type="number" class="form-control" value="{{ $mhs->telp }}" >
+                                    <input name="no_telp" type="number" class="form-control" value="{{ $mhs->no_telp }}" >
                                 </div>
                             </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input name="password" type="password" class="form-control" placeholder="Optional" >
+                                </div>
+                        </div>
 
                         </div>
 
@@ -104,9 +110,9 @@
                         </a>
                         <br>
                     </div>
-                    <p class="description text-center">Teknik Informatika (DUMMY)<br>
-                        Fakultas Informatika (DUMMY)<br>
-                        2014 (DUMMY)
+                    <p class="description text-center">{{$mhs->kelas->jurusan}}
+                    </p>
+                    <p class="description text-center">{{$mhs->kelas->fakultas}}
                     </p>
                 </div>
                 <hr>

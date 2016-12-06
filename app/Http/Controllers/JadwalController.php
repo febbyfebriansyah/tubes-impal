@@ -38,6 +38,5 @@ class JadwalController extends Controller
 
         return redirect('admin/input-jadwal');
     }
-
-
+        
 }

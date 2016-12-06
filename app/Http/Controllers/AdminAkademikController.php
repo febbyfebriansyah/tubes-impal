@@ -89,7 +89,7 @@ class AdminAkademikController extends Controller
         $new_dosen->name = $nama;
         $new_dosen->kode = $kode;
         $new_dosen->username = $username;
-        $new_dosen->password = $password;
+        $new_dosen->password = Hash::make($password);
         $new_dosen->save();
 
         return redirect('admin/input-dosen');
@@ -97,6 +97,22 @@ class AdminAkademikController extends Controller
 
     public function deleteDosen($id){
         Dosen::destroy($id);
+        return redirect('admin/input-dosen');
+    }
+
+    public function editDosen($id){
+        $dosen = Dosen::find($id);
+        return view('admin.edit-dosen', ["dosen" => $dosen]);
+    }
+
+    public function submitEditDosen($id, Request $request){
+        $dosen = Dosen::find($id);
+        $dosen->name = $request->input('nama');
+        $dosen->nip = $request->input('nip');
+        $dosen->username = $request->input('username');
+        $dosen->kode = $request->input('kode');
+        $dosen->save();
+
         return redirect('admin/input-dosen');
     }
 

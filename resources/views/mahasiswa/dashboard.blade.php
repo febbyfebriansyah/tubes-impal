@@ -57,7 +57,7 @@
                             <tr>
                                 <td>Her Registrasi</td>
                                 <td class="td-actions text-right">
-                                    2 Maret 2016
+                                    2 Desember 2016
                                 </td>
                             </tr>
                             <tr>
@@ -69,14 +69,14 @@
                             <tr>
                                 <td>Awal Kuliah Semester Genap 2017/2018</td>
                                 <td class="td-actions text-right">
-                                    24 Maret 2016
+                                    16 Januari 2017
                                 </td>
                             </tr>
 
                             <tr>
                                 <td>UAS Semeter Genap 2017/2018</td>
                                 <td class="td-actions text-right">
-                                    24 Maret 2017
+                                    24 April 2017
                                 </td>
                             </tr>
 

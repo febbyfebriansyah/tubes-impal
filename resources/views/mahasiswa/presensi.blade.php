@@ -32,24 +32,21 @@
                         <th>Mata Kuliah</th>
                         <th>Dosen</th>
                         <th>SKS</th>
-                        <th>Presentase Kehadiran</th>
+                        <th>Kehadiran</th>
+                        <th>Tanggal</th>
                         <th>Detail</th>
                         </thead>
                         <tbody>
+                        @foreach($listpresensi as $presensi)
                         <tr>
-                            <td>Matematika Diskrit</td>
-                            <td>Bambang Ari Wahyudi</td>
-                            <td>3</td>
-                            <td>90%</td>
-                            <td><a class="btn btn-sm btn-primary">Detail</a></td>
+                            <td>{{$presensi->mataKuliah->nama}}</td>
+                            <td>{{$presensi->mataKuliah->dosen->name}}</td>
+                            <td>{{$presensi->mataKuliah->sks}}</td>
+                            <td>{{$presensi->data }}</td>
+                            <td>{{$presensi->tanggal }}</td>
+                            <td>{{$presensi->keterangan }}</td>
                         </tr>
-                        <tr>
-                            <td>Kalkulus II</td>
-                            <td>Azikin</td>
-                            <td>4</td>
-                            <td>88%</td>
-                            <td><a class="btn btn-sm btn-primary">Detail</a></td>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
 

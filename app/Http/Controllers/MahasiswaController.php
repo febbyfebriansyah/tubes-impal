@@ -31,7 +31,8 @@ class MahasiswaController extends Controller
     }
 
     public function presensi(){
-        return view('mahasiswa.presensi');
+        $listpresensi = Auth::guard('mahasiswa')->user()->presensi;
+        return view('mahasiswa.presensi', ['listpresensi' => $listpresensi]);
     }
 
     public function profile(){

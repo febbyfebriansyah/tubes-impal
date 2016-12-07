@@ -78,7 +78,7 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Password</label>
-									<input name="password" type="text" class="form-control">
+									<input name="password" type="text" class="form-control" placeholder="Optional">
 								</div>
 							</div>
 						</div>

@@ -39,9 +39,16 @@
 								<div class="form-group">	
 									<label>Kelas</label>
 									<select name="kelas" class="form-control" required>
-				                        <option selected="selected" value="{{$mahasiswa->kelas_id}}">{{ $mahasiswa->kelas->kode }}</option>
 				                        @foreach($list_kelas as $kelas)
-				                            <option value="{{ $kelas->id }}">{{ $kelas->kode }}</option>
+											@if($mahasiswa->kelas != null)
+												@if($kelas->kode == $mahasiswa->kelas->kode )
+													<option selected value="{{ $kelas->id }}">{{ $kelas->kode }}</option>
+												@else
+													<option value="{{ $kelas->id }}">{{ $kelas->kode }}</option>
+												@endif
+											@else
+												<option selected value="{{ $kelas->id }}">{{ $kelas->kode }}</option>
+											@endif
 				                        @endforeach
 				                    </select>
 								</div>

@@ -40,7 +40,9 @@ class AdminAkademikController extends Controller
             $new_mahasiswa = new Mahasiswa();
             $new_mahasiswa->nim = $nim;
             $new_mahasiswa->username = $username;
-            $new_mahasiswa->password = Hash::make($password);
+            if($request['password'] != ''){
+                $new_mahasiswa->password = Hash::make($request->input('password'));
+            }
             $new_mahasiswa->name = $nama;
             $new_mahasiswa->kelas_id = $kelas;
             $new_mahasiswa->alamat  = $alamat;
@@ -78,7 +80,25 @@ class AdminAkademikController extends Controller
         if($request['password'] != ''){
             $mahasiswa->password = Hash::make($request->input('password'));
         }
-        $mahasiswa->save();
+
+        try{
+            $new_mahasiswa = new Mahasiswa();
+            $new_mahasiswa->name = $request->input('nama');
+            $new_mahasiswa->nim = $request->input('nim');
+            $new_mahasiswa->kelas_id =  $request->input('kelas');
+            $new_mahasiswa->alamat = $request->input('alamat');
+            $new_mahasiswa->no_telp = $request->input('telp');
+            $new_mahasiswa->username = $request->input('username');
+            if($request['password'] != ''){
+                $new_mahasiswa->password = Hash::make($request->input('password'));
+            }
+            $mahasiswa->save();
+        } catch (QueryException $qe){
+            return "<script>".
+            "alert('NIM / Username Duplicate');".
+            "window.location.href='';".
+            "</script>";
+        }
 
         return redirect('admin/input-mahasiswa');
     }

@@ -55,7 +55,6 @@ class DosenController extends Controller
 
         }
 
-
     }
 
     public function deleteNilai($id){

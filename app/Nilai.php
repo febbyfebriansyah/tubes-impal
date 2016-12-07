@@ -83,7 +83,7 @@ class Nilai extends Model
     }
 
     public function mahasiswa(){
-        return $this->belongsTo('App\Mahasiswa', 'id');
+        return $this->belongsTo('App\Mahasiswa', 'mahasiswa_id');
     }
 
 }

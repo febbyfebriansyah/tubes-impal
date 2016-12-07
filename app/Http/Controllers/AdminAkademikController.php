@@ -98,16 +98,25 @@ class AdminAkademikController extends Controller
         $kode = $request->input('kode');
         $username = $request->input('username');
         $password = $request->input('password');
+        try{
+            $new_dosen = new Dosen();
+            $new_dosen->nip = $nip;
+            $new_dosen->name = $nama;
+            $new_dosen->kode = $kode;
+            $new_dosen->username = $username;
+            $new_dosen->password = Hash::make($password);
+            $new_dosen->save();
 
-        $new_dosen = new Dosen();
-        $new_dosen->nip = $nip;
-        $new_dosen->name = $nama;
-        $new_dosen->kode = $kode;
-        $new_dosen->username = $username;
-        $new_dosen->password = Hash::make($password);
-        $new_dosen->save();
+            return redirect('admin/input-dosen');
 
-        return redirect('admin/input-dosen');
+        } catch (QueryException $qe){
+
+            return "<script>".
+                "alert('NIP / Kode / Username Duplicate');".
+                "window.location.href='';".
+            "</script>";
+
+        }
     }
 
     public function deleteDosen($id){
@@ -121,17 +130,27 @@ class AdminAkademikController extends Controller
     }
 
     public function submitEditDosen($id, Request $request){
-        $dosen = Dosen::find($id);
-        $dosen->name = $request->input('nama');
-        $dosen->nip = $request->input('nip');
-        $dosen->username = $request->input('username');
-        $dosen->kode = $request->input('kode');
-        if($request['password'] != ''){
-            $dosen->password = Hash::make($request->input('password'));
-        }
-        $dosen->save();
+        try{
+            $dosen = Dosen::find($id);
+            $dosen->name = $request->input('nama');
+            $dosen->nip = $request->input('nip');
+            $dosen->username = $request->input('username');
+            $dosen->kode = $request->input('kode');
+            if($request['password'] != ''){
+                $dosen->password = Hash::make($request->input('password'));
+            }
+            $dosen->save();
 
-        return redirect('admin/input-dosen');
+            return redirect('admin/input-dosen');
+            
+        } catch (QueryException $qe){
+
+            return "<script>".
+                "alert('NIP / Kode / Username Duplicate');".
+                "window.location.href='';".
+            "</script>";
+
+        }
     }
 
     public function profile(){

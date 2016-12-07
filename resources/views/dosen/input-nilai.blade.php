@@ -134,7 +134,7 @@
                                 @foreach($matkul->nilai as $nilai)
 
                                     <tr>
-                                    <td>{{ $nilai->mahasiswa->name }}</td>
+                                    <td>{{ $nilai->mahasiswa }}</td>
                                     <td>{{ $matkul->kelas->kode }}</td>
                                     <td>{{ $matkul->kode }}</td>
                                     <td>{{ $nilai->getIndex() }}</td>

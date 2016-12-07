@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Kelas;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -12,12 +13,20 @@ class KelasController extends Controller
         $kelas = $request->input('kelas');
         $jurusan = $request->input('jurusan');
         $fakultas = $request->input('fakultas');
-        
+
         $obj_kelas = new Kelas();
         $obj_kelas->kode = $kelas;
         $obj_kelas->jurusan = $jurusan;
         $obj_kelas->fakultas = $fakultas;
-        $obj_kelas->save();
+
+        try{
+            $obj_kelas->save();
+        } catch (QueryException $qe){
+            return "<script>".
+            "alert('NIM / Username Duplicate');".
+            "window.location.href='';".
+            "</script>";
+        }
 
         return redirect('admin/input-kelas');
     }

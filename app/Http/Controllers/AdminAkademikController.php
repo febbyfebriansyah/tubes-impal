@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kelas;
 use App\Mahasiswa;
 use App\Dosen;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -35,17 +36,28 @@ class AdminAkademikController extends Controller
             $password = $request->input('password');
         }
 
-        $new_mahasiswa = new Mahasiswa();
-        $new_mahasiswa->nim = $nim;
-        $new_mahasiswa->username = $username;
-        $new_mahasiswa->password = Hash::make($password);
-        $new_mahasiswa->name = $nama;
-        $new_mahasiswa->kelas_id = $kelas;
-        $new_mahasiswa->alamat  = $alamat;
-        $new_mahasiswa->no_telp = $no_telp;
-        $new_mahasiswa->save();
+        try {
+            $new_mahasiswa = new Mahasiswa();
+            $new_mahasiswa->nim = $nim;
+            $new_mahasiswa->username = $username;
+            $new_mahasiswa->password = Hash::make($password);
+            $new_mahasiswa->name = $nama;
+            $new_mahasiswa->kelas_id = $kelas;
+            $new_mahasiswa->alamat  = $alamat;
+            $new_mahasiswa->no_telp = $no_telp;
+            $new_mahasiswa->save();
 
-        return redirect('admin/input-mahasiswa');
+            return redirect('admin/input-mahasiswa');
+
+        } catch (QueryException $qe){
+
+            return "<script>".
+                "alert('NIM / Username Duplicate');".
+                "window.location.href='';".
+            "</script>";
+
+        }
+
 
     }
 

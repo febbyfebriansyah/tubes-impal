@@ -68,6 +68,8 @@
                                 <div class="form-group">
                                     <label>NIP (disabled)</label>
                                     {{ csrf_field() }}
+                                    <input name="nip" type="hidden" class="form-control" value="{{ $user->nip }}">
+
                                     <input name="nip" type="text" class="form-control" value="{{ $user->nip }}" disabled>
                                 </div>
                             </div>
@@ -98,14 +100,13 @@
                             <img class="avatar border-gray" src="{{url('assets/img/default-avatar.png')}}" alt="..."/>
 
                             <h4 class="title">{{$user->name}}<br />
+                                <small>{{$user->kode}}</small><br />
                                 <small>{{$user->nip}}</small>
                             </h4>
                         </a>
                         <br>
                     </div>
-                    <p class="description text-center"><br>
-                        Fakultas Informatika (DUMMY)<br>
-                    </p>
+
                 </div>
                 <hr>
             </div>

@@ -41,8 +41,10 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>NIM</label>
-                                    <input name="nim" type="text" class="form-control" value="{{ $mhs->nim }}">
+                                    <label>NIM (disabled)</label>
+                                    <input name="nim" type="hidden" class="form-control" value="{{ $mhs->nim }}">
+
+                                    <input name="nim" type="text" class="form-control" value="{{ $mhs->nim }}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-4">

@@ -69,7 +69,7 @@ class Presensi extends Model
 
 // *** Eloquent Relationship *** //
     public function mataKuliah(){
-        return $this->belongsTo('App\MataKuliah');
+        return $this->belongsTo('App\MataKuliah', 'matakuliah_id');
     }
 
     public function mahasiswa(){

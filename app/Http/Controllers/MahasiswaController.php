@@ -59,7 +59,8 @@ class MahasiswaController extends Controller
 
         if(count(Auth::guard('mahasiswa')->user()->registrasi) == 0) return view('mahasiswa.not-registered');
 
-        return view('mahasiswa.presensi');
+        $listpresensi = Auth::guard('mahasiswa')->user()->presensi;
+        return view('mahasiswa.presensi', ['listpresensi' => $listpresensi]);
     }
 
     public function profile(){

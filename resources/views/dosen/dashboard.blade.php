@@ -41,40 +41,25 @@
             <div class="card ">
                 <div class="header">
                     <h4 class="title">Agenda Akademik</h4>
-                    <p class="category">Tanggal : {{ date('D, M, Y') }}</p>
+                    <p class="category">Tanggal : {{ date('D, d M Y') }}</p>
                 </div>
                 <div class="content">
                     <div class="table-full-width">
                         <table class="table">
                             <tbody>
                             <tr>
-                                <td>
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="" data-toggle="checkbox" checked>
-                                    </label>
-                                </td>
                                 <td>Her Registrasi</td>
                                 <td class="td-actions text-right">
                                     2 Maret 2016
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="" data-toggle="checkbox" >
-                                    </label>
-                                </td>
                                 <td>Pendaftaran GemasTIK 2016</td>
                                 <td class="td-actions text-right">
                                     20 Maret 2017
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="" data-toggle="checkbox" >
-                                    </label>
-                                </td>
                                 <td>Awal Kuliah Semester Genap 2017/2018</td>
                                 <td class="td-actions text-right">
                                     24 Maret 2016
@@ -82,11 +67,6 @@
                             </tr>
 
                             <tr>
-                                <td>
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="" data-toggle="checkbox" >
-                                    </label>
-                                </td>
                                 <td>UAS Semeter Genap 2017/2018</td>
                                 <td class="td-actions text-right">
                                     24 Maret 2017

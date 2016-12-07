@@ -68,6 +68,8 @@
                                 <div class="form-group">
                                     <label>NIP (disabled)</label>
                                     {{ csrf_field() }}
+                                    <input name="nip" type="hidden" class="form-control" value="{{ $user->nip }}">
+
                                     <input name="nip" type="text" class="form-control" value="{{ $user->nip }}" disabled>
                                 </div>
                             </div>

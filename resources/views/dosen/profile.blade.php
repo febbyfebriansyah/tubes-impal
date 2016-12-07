@@ -98,14 +98,13 @@
                             <img class="avatar border-gray" src="{{url('assets/img/default-avatar.png')}}" alt="..."/>
 
                             <h4 class="title">{{$user->name}}<br />
+                                <small>{{$user->kode}}</small><br />
                                 <small>{{$user->nip}}</small>
                             </h4>
                         </a>
                         <br>
                     </div>
-                    <p class="description text-center"><br>
-                        Fakultas Informatika (DUMMY)<br>
-                    </p>
+
                 </div>
                 <hr>
             </div>

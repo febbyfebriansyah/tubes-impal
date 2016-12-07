@@ -67,10 +67,18 @@
 									<input name="telp" type="text" class="form-control" value="{{$mahasiswa->no_telp}}" required>
 								</div>
 							</div>
-							<div class="col-md-3">
+						</div>
+						<div class="row">
+							<div class="col-md-5">
 								<div  class="form-group">
 									<label>Username</label>
 									<input name="username" type="text" class="form-control" value="{{$mahasiswa->username}}" required>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Password</label>
+									<input name="password" type="text" class="form-control">
 								</div>
 							</div>
 						</div>

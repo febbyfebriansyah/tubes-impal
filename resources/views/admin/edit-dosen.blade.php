@@ -35,6 +35,12 @@
 									<input name="nip" type="text" class="form-control" value="{{ $dosen->nip }}" required>
 								</div>
 							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label>Kode Dosen</label>
+									<input name="kode" type="text" class="form-control" value="{{ $dosen->kode }}" required>
+								</div>
+							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-5">
@@ -43,10 +49,10 @@
 									<input name="username" type="text" class="form-control" value="{{ $dosen->username }}" required>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-5">
 								<div class="form-group">
-									<label>Kode Dosen</label>
-									<input name="kode" type="text" class="form-control" value="{{ $dosen->kode }}" required>
+									<label>Password</label>
+									<input name="password" type="text" class="form-control">
 								</div>
 							</div>
 						</div>

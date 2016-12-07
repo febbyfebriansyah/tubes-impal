@@ -48,5 +48,38 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">List Presensi</h4>
+                </div>
+                <div class="content">
+                        <div class="row">
+                            <table class="table">
+                                <thead>
+                                    <th>No</th>
+                                    <th>MataKuliah</th>
+                                    <th>Tanggal</th>
+                                    <th>Keterangan</th>
+                                    {{--<th>Action</th>--}}
+                                </thead>
+                                <tbody>
+                                <?php $i = 1 ?>
+                                @foreach($list_presensi as $presensi)
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $presensi->nama }}</td>
+                                        <td>{{ $presensi->tanggal }}</td>
+                                        <td>{{ $presensi->keterangan }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection

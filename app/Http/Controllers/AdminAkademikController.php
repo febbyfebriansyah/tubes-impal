@@ -31,7 +31,9 @@ class AdminAkademikController extends Controller
         $alamat = $request->input('alamat');
         $no_telp = $request->input('telp');
         $username = $request->input('username');
-        $password = $request->input('password');
+        if ($request->input('password') != null){
+            $password = $request->input('password');
+        }
 
         $new_mahasiswa = new Mahasiswa();
         $new_mahasiswa->nim = $nim;

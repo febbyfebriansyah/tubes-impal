@@ -30,6 +30,8 @@ Route::post('/register', 'AuthController@postRegister');
 Route::group(['middleware' => 'auth.mahasiswa'], function () {
     Route::get('/mahasiswa', 'MahasiswaController@home');
     Route::get('/mahasiswa/pembayaran', 'MahasiswaController@regist_bayar');
+    Route::post('/mahasiswa/pembayaran', 'MahasiswaController@postBayarToken');
+
     Route::get('/mahasiswa/regist-matkul', 'MahasiswaController@regist_matkul');
     Route::get('/mahasiswa/jadwal', 'MahasiswaController@jadwal');
     Route::get('/mahasiswa/presensi', 'MahasiswaController@presensi');

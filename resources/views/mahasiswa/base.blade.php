@@ -55,30 +55,11 @@
                     </a>
                 </li>
 
-                <li class="@yield('activeregist') dropdown">
-                    <a data-toggle="collapse" href="#dropdown-exam">
+                <li class="@yield('activeregist')">
+                    <a href="{{ url('/mahasiswa/pembayaran') }}">
                         <i class="fa fa-pencil-square-o"></i>
                         <p>Registrasi</p>
                     </a>
-                    <!-- Dropdown level 1 -->
-                    <div  id="dropdown-exam" class="panel-collapse collapse">
-                        <div  class="panel-body">
-                            <ul style="margin-top:-20px; margin-bottom: -300px" class="nav">
-                                <li class="">
-                                    <a href="{{ url('/mahasiswa/pembayaran') }}">
-                                        <i class="fa fa-money"></i>
-                                        <p>Pembayaran</p>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="{{ url('/mahasiswa/regist-matkul') }}">
-                                        <i class="fa fa-graduation-cap"></i>
-                                        <p>Mata Kuliah</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </li>
 
                 <li class="@yield('activejadwal')">

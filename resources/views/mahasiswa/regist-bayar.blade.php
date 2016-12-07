@@ -34,13 +34,13 @@
                                 <div class="form-group">
                                     {{ csrf_field() }}
                                     <label>Semester</label>
-                                    <input name="jurusan" type="text" value="4" class="form-control" disabled>
+                                    <input name="semester" type="text" value="{{ count($tokens) + 1 }}" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <label>Input Token</label>
-                                    <input name="jurusan" type="text" class="form-control" required>
+                                    <input name="token" type="text" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -63,25 +63,16 @@
                     <table class="table table-hover">
                         <thead>
                         <th>Semester</th>
-                        <th>Tahun Ajaran</th>
-                        <th>Total Pembayaran</th>
+                        <th>Status</th>
                         </thead>
                         <tbody>
+                        <?php $i = 1?>
+                        @foreach($tokens as $token)
                         <tr>
-                            <td>1</td>
-                            <td>2014/2015</td>
-                            <td>Rp. 7.500.000,-</td>
+                            <td>{{ $i++ }}</td>
+                            <td>Sudah Bayar</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2014/2015</td>
-                            <td>Rp. 7.500.000,-</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>2015/2016</td>
-                            <td>Rp. 7.500.000,-</td>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
 

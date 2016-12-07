@@ -77,7 +77,6 @@ class DosenController extends Controller
         $user->nip = $request['nip'];
         $user->email = $request['email'];
         $user->name = $request['name'];
-
         if($request['password'] != ''){
             $user->password = Hash::make($request['password']);
         }

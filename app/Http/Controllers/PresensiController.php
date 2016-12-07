@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\MataKuliah;
+use App\Presensi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,5 +31,25 @@ class PresensiController extends Controller
             'matakuliah_id' => $id_matkul
         ]);
 
+    }
+
+    public function submitPresensiMahasiswa($id_matkul, Request $request){
+
+//        return response()->json($request);
+        $list_mahasiswa = $request->input('mahasiswa');
+        $list_presensi = $request->input('presensi');
+
+        for ($i = 0; $i < count($list_mahasiswa); $i++) {
+            $presensi = new Presensi();
+            $presensi->matakuliah_id = $id_matkul;
+            $presensi->mahasiswa_id = $list_mahasiswa[$i];
+            $presensi->tanggal = $request->input('tanggal_kelas');
+            $presensi->keterangan = $request->input('keterangan');
+            $presensi->data = $list_presensi[$i];
+
+            $presensi->save();
+        }
+
+        return redirect('dosen/input-presensi/');
     }
 }

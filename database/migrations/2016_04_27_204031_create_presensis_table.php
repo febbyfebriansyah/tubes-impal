@@ -21,8 +21,11 @@ class CreatePresensisTable extends Migration
             $table->integer('mahasiswa_id')->unsigned()->nullable();
             $table->foreign('mahasiswa_id')->references('id')->on('mahasiswa')->onDelete('cascade');
 
-            $table->dateTime('tanggal')->nullable();
-            
+            $table->string('tanggal')->nullable();
+            $table->string('keterangan')->nullable();
+            $table->string('data')->nullable();
+
+
             $table->timestamps();
         });
     }

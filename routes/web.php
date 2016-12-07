@@ -77,6 +77,7 @@ Route::group(['middleware' => 'auth.dosen'], function () {
     Route::post('/dosen/input-presensi', 'PresensiController@postSelectMatkulPresensi');
 
     Route::get('/dosen/input-presensi/{id_matkul}', 'PresensiController@inputPresensiMahasiswa');
+    Route::post('/dosen/input-presensi/{id_matkul}', 'PresensiController@submitPresensiMahasiswa');
 
 
     Route::get('/dosen/jadwal', 'DosenController@jadwal');
